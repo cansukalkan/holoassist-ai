@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "catalog_id": "synthetic-spatial-anchor-catalog",
+  "catalog_version": "test-1",
+  "equipment_id": "synthetic-rig",
+  "scope": "synthetic_demo",
+  "anchors": [
+    {
+      "schema_version": "1.0",
+      "anchor_id": "anchor-demo-label",
+      "part_id": "demo-label",
+      "label": "Sentetik Gövde Bilgi Plakası",
+      "pose": {
+        "schema_version": "1.0",
+        "x": 0.0,
+        "y": 0.64,
+        "z": 0.0,
+        "callout_offset_y": 0.24
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "anchor_id": "anchor-demo-critical-part",
+      "part_id": "demo-critical-part",
+      "label": "Sentetik Komütatör ve Klemens Grubu",
+      "pose": {
+        "schema_version": "1.0",
+        "x": -0.6,
+        "y": 0.62,
+        "z": 0.0,
+        "callout_offset_y": 0.24
+      }
+    }
+  ]
+}
+

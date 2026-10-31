@@ -1,0 +1,63 @@
+{
+  "catalog_version": "test-1",
+  "equipment_id": "synthetic-rig",
+  "schema_version": "1.0",
+  "catalog_id": "synthetic-diagnostic-catalog",
+  "rules": [
+    {
+      "explanation": "Yalnızca sentetik senaryoda yük etiketi olası neden olarak tanımlanmıştır.",
+      "symptom": "overheating",
+      "assertions": [
+        {
+          "assertion_id": "load-support",
+          "page": 3,
+          "document_version": "test-1",
+          "section": "Sentetik olasılıklar",
+          "document_id": "holoassist-synthetic-diagnostic",
+          "checksum": "059ed66160ea6335324f9ccf60e5f5c256e438ebc1afae881537c9607a5bf3c8",
+          "quote": "SENTETİK TEST: overheating (temperature) belirtisi demo_load_state etiketiyle ilişkilidir.",
+          "relation": "supports"
+        },
+        {
+          "assertion_id": "load-contradiction",
+          "page": 4,
+          "document_version": "test-1",
+          "section": "Sentetik çelişki",
+          "document_id": "holoassist-synthetic-diagnostic",
+          "checksum": "059ed66160ea6335324f9ccf60e5f5c256e438ebc1afae881537c9607a5bf3c8",
+          "quote": "SENTETİK KARŞIT KAYIT: overheating (temperature) için demo_load_state etiketi başka bir test kaydında dışlanmıştır.",
+          "relation": "contradicts"
+        }
+      ],
+      "missing_information": [
+        "real_motor_model",
+        "reviewed_manufacturer_source",
+        "validated_sensor_series"
+      ],
+      "code": "demo_load_state"
+    },
+    {
+      "explanation": "Yalnızca sentetik senaryoda ortam etiketi ikinci bir olası neden olarak tanımlanmıştır.",
+      "symptom": "overheating",
+      "assertions": [
+        {
+          "assertion_id": "environment-support",
+          "page": 3,
+          "document_version": "test-1",
+          "section": "Sentetik olasılıklar",
+          "document_id": "holoassist-synthetic-diagnostic",
+          "checksum": "059ed66160ea6335324f9ccf60e5f5c256e438ebc1afae881537c9607a5bf3c8",
+          "quote": "SENTETİK TEST: overheating (temperature) belirtisi demo_environment_state etiketiyle ilişkilidir.",
+          "relation": "supports"
+        }
+      ],
+      "missing_information": [
+        "real_motor_model",
+        "reviewed_manufacturer_source",
+        "validated_sensor_series"
+      ],
+      "code": "demo_environment_state"
+    }
+  ],
+  "scope": "synthetic_demo"
+}

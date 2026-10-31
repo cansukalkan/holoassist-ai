@@ -1,0 +1,116 @@
+{
+  "schema_version": "1.0",
+  "fixture_id": "current",
+  "fixture_checksum": "9bf98302df57d0d59b8e0a1f097021c7ff6bd56cf7207823530e113e53894599",
+  "scope": "synthetic_demo",
+  "series": {
+    "schema_version": "1.0",
+    "observations": [
+      {
+        "schema_version": "1.0",
+        "equipment_id": "synthetic-rig",
+        "sensor_id": "synthetic-current",
+        "timestamp_utc": "2026-10-21T10:00:00Z",
+        "quantity": "current",
+        "value": 0.4,
+        "unit": "A",
+        "provenance": "simulated",
+        "quality": "valid"
+      },
+      {
+        "schema_version": "1.0",
+        "equipment_id": "synthetic-rig",
+        "sensor_id": "synthetic-current",
+        "timestamp_utc": "2026-10-21T10:00:10Z",
+        "quantity": "current",
+        "value": 0.41,
+        "unit": "A",
+        "provenance": "simulated",
+        "quality": "valid"
+      },
+      {
+        "schema_version": "1.0",
+        "equipment_id": "synthetic-rig",
+        "sensor_id": "synthetic-current",
+        "timestamp_utc": "2026-10-21T10:00:20Z",
+        "quantity": "current",
+        "value": 0.42,
+        "unit": "A",
+        "provenance": "simulated",
+        "quality": "valid"
+      },
+      {
+        "schema_version": "1.0",
+        "equipment_id": "synthetic-rig",
+        "sensor_id": "synthetic-current",
+        "timestamp_utc": "2026-10-21T10:00:30Z",
+        "quantity": "current",
+        "value": 1.8,
+        "unit": "A",
+        "provenance": "simulated",
+        "quality": "valid"
+      },
+      {
+        "schema_version": "1.0",
+        "equipment_id": "synthetic-rig",
+        "sensor_id": "synthetic-current",
+        "timestamp_utc": "2026-10-21T10:00:40Z",
+        "quantity": "current",
+        "value": 0.43,
+        "unit": "A",
+        "provenance": "simulated",
+        "quality": "valid"
+      },
+      {
+        "schema_version": "1.0",
+        "equipment_id": "synthetic-rig",
+        "sensor_id": "synthetic-current",
+        "timestamp_utc": "2026-10-21T10:00:50Z",
+        "quantity": "current",
+        "value": 0.44,
+        "unit": "A",
+        "provenance": "simulated",
+        "quality": "valid"
+      }
+    ]
+  },
+  "report": {
+    "schema_version": "1.0",
+    "equipment_id": "synthetic-rig",
+    "sensor_id": "synthetic-current",
+    "quantity": "current",
+    "unit": "A",
+    "provenance": "simulated",
+    "guidance_allowed": false,
+    "sample_count": 6,
+    "start_utc": "2026-10-21T10:00:00Z",
+    "end_utc": "2026-10-21T10:00:50Z",
+    "status": "summary_available",
+    "reason_code": "descriptive_statistics_only",
+    "invalid_quality_indices": [],
+    "missing_information": [],
+    "statistics": {
+      "schema_version": "1.0",
+      "minimum": 0.4,
+      "maximum": 1.8,
+      "mean": 0.65,
+      "median": 0.425,
+      "first_value": 0.4,
+      "last_value": 0.44,
+      "delta": 0.03999999999999998,
+      "duration_seconds": 50.0,
+      "slope_per_second": 0.004685714285714285,
+      "slope_unit": "A/s",
+      "slope_direction": "positive"
+    },
+    "outliers": {
+      "schema_version": "1.0",
+      "method": "modified_z_score_mad",
+      "threshold": 3.5,
+      "status": "evaluated",
+      "sample_indices": [
+        3
+      ]
+    }
+  }
+}

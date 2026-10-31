@@ -1,0 +1,13 @@
+{
+  "analysis_request_id": "synthetic-analysis-demo-1",
+  "tracking_status": "tracked",
+  "schema_version": "1.0",
+  "steps": [
+    {
+      "step_id": "step-0",
+      "instruction_id": "demo-information",
+      "part_id": "demo-label"
+    }
+  ],
+  "review_id": "synthetic-review-information"
+}

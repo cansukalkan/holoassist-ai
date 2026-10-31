@@ -1,0 +1,21 @@
+# Explicit allowlist: local credentials, Git and runtime data never enter build context.
+*
+!Dockerfile
+!pyproject.toml
+!ai-engine/
+!ai-engine/holoassist/
+!ai-engine/holoassist/**
+ai-engine/holoassist/**/__pycache__/
+ai-engine/holoassist/**/*.pyc
+!datasets/
+!datasets/fixtures/
+!datasets/fixtures/instruction-catalog.json
+!datasets/fixtures/diagnostic-catalog.json
+!datasets/fixtures/sensor-current.json
+!datasets/fixtures/sensor-temperature.json
+!datasets/fixtures/sensor-vibration.json
+!docs/
+!docs/equipment-intake.template.json
+!docs/examples/
+!docs/examples/safety-analysis.json
+!docs/examples/diagnostic-analysis.json

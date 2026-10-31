@@ -1,0 +1,13 @@
+{
+  "analysis_request_id": "synthetic-analysis-demo-1",
+  "tracking_status": "tracked",
+  "schema_version": "1.0",
+  "steps": [
+    {
+      "step_id": "step-1",
+      "instruction_id": "demo-critical",
+      "part_id": "demo-critical-part"
+    }
+  ],
+  "review_id": "synthetic-review-critical"
+}

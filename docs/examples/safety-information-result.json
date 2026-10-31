@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "review_id": "synthetic-review-information",
+  "analysis_request_id": "synthetic-analysis-demo-1",
+  "catalog_id": "synthetic-instruction-catalog",
+  "catalog_version": "test-1",
+  "context_digest": "5e1c67b822eeab0286304c928e860a85b4fbe943589aadca8726ca86d08c47f4",
+  "source_kind": "synthetic",
+  "guidance_allowed": false,
+  "status": "display_allowed",
+  "reason_code": "synthetic_information_only",
+  "steps": [
+    {
+      "schema_version": "1.0",
+      "step_id": "step-0",
+      "instruction_id": "demo-information",
+      "part_id": "demo-label",
+      "risk": "informational",
+      "status": "display_allowed",
+      "reason_code": "synthetic_information_only",
+      "citations": [
+        {
+          "schema_version": "1.0",
+          "assertion_id": "demo-information-source",
+          "evidence_id": "chunk-5d6dccf1ec0df09456bade3e080810a56712833cda7724cc247d64be934155d6",
+          "document_id": "holoassist-synthetic-safety",
+          "document_version": "test-1",
+          "checksum": "827d6251c5903fd6ea1b9b5f5f9f81953afdbf06ac33786c1b2be8e34abdca35",
+          "page": 1,
+          "section": "Sentetik talimat etiketleri",
+          "relation": "supports",
+          "quote": "SENTET\u0130K KART: Bu ekranda yaln\u0131zca test verisi g\u00f6steriliyor."
+        }
+      ],
+      "display_text": "SENTET\u0130K KART: Bu ekranda yaln\u0131zca test verisi g\u00f6steriliyor."
+    }
+  ]
+}

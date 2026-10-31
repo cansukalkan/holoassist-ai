@@ -1,0 +1,107 @@
+{
+  "schema_version": "1.0",
+  "guidance_allowed": false,
+  "request": {
+    "schema_version": "1.0",
+    "request_id": "synthetic-analysis-demo-1",
+    "equipment_id": "synthetic-rig",
+    "mode": "demo",
+    "recognition": {
+      "schema_version": "1.0",
+      "status": "matched",
+      "reason": "synthetic_fixture_not_a_real_motor_measurement",
+      "equipment_id": "synthetic-rig",
+      "reference_kind": "synthetic",
+      "good_matches": 20,
+      "inliers": 16,
+      "inlier_ratio": 0.8,
+      "corners": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          100.0,
+          0.0
+        ],
+        [
+          100.0,
+          100.0
+        ],
+        [
+          0.0,
+          100.0
+        ]
+      ]
+    },
+    "symptom_codes": [
+      "overheating"
+    ],
+    "sensor_series": []
+  },
+  "status": "ready_for_diagnostic",
+  "evidence": [
+    {
+      "schema_version": "1.0",
+      "evidence_id": "chunk-9cf44de7593d3c64b9d448bb2ba2ec9712a7564c0ca1a404c7e1760ce01c539f",
+      "equipment_id": "synthetic-rig",
+      "document_id": "holoassist-synthetic-diagnostic",
+      "document_version": "test-1",
+      "checksum": "059ed66160ea6335324f9ccf60e5f5c256e438ebc1afae881537c9607a5bf3c8",
+      "page": 3,
+      "section": "Sentetik olas\u0131l\u0131klar",
+      "excerpt": "SENTET\u0130K TEST: overheating (temperature) belirtisi demo_load_state etiketiyle ili\u015fkilidir. SENTET\u0130K TEST: overheating (temperature) belirtisi demo_environment_state etiketiyle ili\u015fkilidir. Bu ifadeler yaln\u0131zca kural ve kaynak e\u015fle\u015ftirme testidir; ger\u00e7ek ekipman te\u015fhisi veya bak\u0131m talimat\u0131 de\u011fildir.",
+      "retrieval_score": 0.29488396644592285,
+      "title": "Sentetik ar\u0131za hipotezi test kayd\u0131 \u2014 ger\u00e7ek motor dok\u00fcman\u0131 de\u011fildir",
+      "source_uri": "fixture://holoassist/synthetic-diagnostic",
+      "source_kind": "synthetic",
+      "license": "CC0-1.0",
+      "permission_reference": "Bu depo i\u00e7in olu\u015fturulmu\u015f CC0-1.0 sentetik test kayd\u0131.",
+      "block_index": 0,
+      "start_char": 0,
+      "end_char": 299
+    },
+    {
+      "schema_version": "1.0",
+      "evidence_id": "chunk-6c51a3bfdffbf3eb62a8cf0c49067f70153cfbd6f344a490d8453473de261bca",
+      "equipment_id": "synthetic-rig",
+      "document_id": "holoassist-synthetic-diagnostic",
+      "document_version": "test-1",
+      "checksum": "059ed66160ea6335324f9ccf60e5f5c256e438ebc1afae881537c9607a5bf3c8",
+      "page": 4,
+      "section": "Sentetik \u00e7eli\u015fki",
+      "excerpt": "SENTET\u0130K KAR\u015eIT KAYIT: overheating (temperature) i\u00e7in demo_load_state etiketi ba\u015fka bir test kayd\u0131nda d\u0131\u015flanm\u0131\u015ft\u0131r. Bu kar\u015f\u0131t kay\u0131t, yaz\u0131l\u0131m\u0131n \u00e7eli\u015fen kan\u0131t\u0131 saklamas\u0131n\u0131 do\u011frulamak i\u00e7in tasarlanm\u0131\u015ft\u0131r; ger\u00e7ek s\u0131cakl\u0131k veya ar\u0131za \u00f6l\u00e7\u00fcm\u00fc de\u011fildir.",
+      "retrieval_score": 0.2672613263130188,
+      "title": "Sentetik ar\u0131za hipotezi test kayd\u0131 \u2014 ger\u00e7ek motor dok\u00fcman\u0131 de\u011fildir",
+      "source_uri": "fixture://holoassist/synthetic-diagnostic",
+      "source_kind": "synthetic",
+      "license": "CC0-1.0",
+      "permission_reference": "Bu depo i\u00e7in olu\u015fturulmu\u015f CC0-1.0 sentetik test kayd\u0131.",
+      "block_index": 1,
+      "start_char": 0,
+      "end_char": 245
+    }
+  ],
+  "missing_information": [],
+  "errors": [],
+  "trace": [
+    {
+      "schema_version": "1.0",
+      "step": 1,
+      "node": "supervisor",
+      "code": "retrieve_sources"
+    },
+    {
+      "schema_version": "1.0",
+      "step": 2,
+      "node": "knowledge",
+      "code": "sources_retrieved"
+    },
+    {
+      "schema_version": "1.0",
+      "step": 3,
+      "node": "validation",
+      "code": "diagnostic_handoff_ready"
+    }
+  ]
+}

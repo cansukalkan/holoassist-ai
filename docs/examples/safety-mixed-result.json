@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "review_id": "synthetic-review-mixed",
+  "analysis_request_id": "synthetic-analysis-demo-1",
+  "catalog_id": "synthetic-instruction-catalog",
+  "catalog_version": "test-1",
+  "context_digest": "a96f0135c7b73a97a477e87f31304ddf15a899b5347be28938c8a8554d06739c",
+  "source_kind": "synthetic",
+  "guidance_allowed": false,
+  "status": "needs_approval",
+  "reason_code": "plan_not_displayable",
+  "steps": [
+    {
+      "schema_version": "1.0",
+      "step_id": "step-0",
+      "instruction_id": "demo-information",
+      "part_id": "demo-label",
+      "risk": "informational",
+      "status": "display_allowed",
+      "reason_code": "synthetic_information_only",
+      "citations": [
+        {
+          "schema_version": "1.0",
+          "assertion_id": "demo-information-source",
+          "evidence_id": "chunk-5d6dccf1ec0df09456bade3e080810a56712833cda7724cc247d64be934155d6",
+          "document_id": "holoassist-synthetic-safety",
+          "document_version": "test-1",
+          "checksum": "827d6251c5903fd6ea1b9b5f5f9f81953afdbf06ac33786c1b2be8e34abdca35",
+          "page": 1,
+          "section": "Sentetik talimat etiketleri",
+          "relation": "supports",
+          "quote": null
+        }
+      ],
+      "display_text": null
+    },
+    {
+      "schema_version": "1.0",
+      "step_id": "step-1",
+      "instruction_id": "demo-critical",
+      "part_id": "demo-critical-part",
+      "risk": "critical",
+      "status": "needs_approval",
+      "reason_code": "persistent_approval_not_implemented",
+      "citations": [
+        {
+          "schema_version": "1.0",
+          "assertion_id": "demo-critical-source",
+          "evidence_id": "chunk-5d6dccf1ec0df09456bade3e080810a56712833cda7724cc247d64be934155d6",
+          "document_id": "holoassist-synthetic-safety",
+          "document_version": "test-1",
+          "checksum": "827d6251c5903fd6ea1b9b5f5f9f81953afdbf06ac33786c1b2be8e34abdca35",
+          "page": 1,
+          "section": "Sentetik talimat etiketleri",
+          "relation": "supports",
+          "quote": null
+        }
+      ],
+      "display_text": null
+    }
+  ]
+}

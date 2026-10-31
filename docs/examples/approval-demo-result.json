@@ -1,0 +1,68 @@
+{
+  "replay_rejected": true,
+  "decision": {
+    "schema_version": "1.0",
+    "approval_id": "a74a1d2e-5a53-4f92-87fd-9715503a8735",
+    "review_id": "synthetic-approval-demo-60695164125c41a395557dc4ee5b1b9f",
+    "analysis_request_id": "synthetic-analysis-demo-1",
+    "context_digest": "9061fb10b3dda0655774688c9ce7547820c276021762d630566d01d6e95af5b8",
+    "scope": "synthetic_demo",
+    "guidance_allowed": false,
+    "status": "approved",
+    "created_utc": "2026-10-21T05:56:11.136112Z",
+    "updated_utc": "2026-10-21T05:56:12.28623Z",
+    "expires_utc": "2026-10-21T06:11:11.136112Z",
+    "decided_by": "cansu",
+    "decided_utc": "2026-10-21T05:56:12.28623Z",
+    "consumed_utc": null,
+    "reason_code": "review_approved"
+  },
+  "receipt": {
+    "schema_version": "1.0",
+    "approval_id": "a74a1d2e-5a53-4f92-87fd-9715503a8735",
+    "context_digest": "9061fb10b3dda0655774688c9ce7547820c276021762d630566d01d6e95af5b8",
+    "scope": "synthetic_demo",
+    "guidance_allowed": false,
+    "status": "demo_continuation_recorded",
+    "consumed_utc": "2026-10-21T05:56:12.811553Z"
+  },
+  "opened": {
+    "schema_version": "1.0",
+    "approval_id": "a74a1d2e-5a53-4f92-87fd-9715503a8735",
+    "review_id": "synthetic-approval-demo-60695164125c41a395557dc4ee5b1b9f",
+    "analysis_request_id": "synthetic-analysis-demo-1",
+    "context_digest": "9061fb10b3dda0655774688c9ce7547820c276021762d630566d01d6e95af5b8",
+    "scope": "synthetic_demo",
+    "guidance_allowed": false,
+    "status": "pending",
+    "created_utc": "2026-10-21T05:56:11.136112Z",
+    "updated_utc": "2026-10-21T05:56:11.136112Z",
+    "expires_utc": "2026-10-21T06:11:11.136112Z",
+    "decided_by": null,
+    "decided_utc": null,
+    "consumed_utc": null,
+    "reason_code": "review_created"
+  },
+  "guidance_allowed": false,
+  "scope": "synthetic_demo",
+  "audit": [
+    {
+      "seq": 1,
+      "event": "review_created",
+      "at_utc": "2026-10-21T08:56:11.136112+03:00",
+      "actor": null
+    },
+    {
+      "seq": 2,
+      "event": "review_approved",
+      "at_utc": "2026-10-21T08:56:12.28623+03:00",
+      "actor": "cansu"
+    },
+    {
+      "seq": 3,
+      "event": "demo_continuation_recorded",
+      "at_utc": "2026-10-21T08:56:12.811553+03:00",
+      "actor": null
+    }
+  ]
+}

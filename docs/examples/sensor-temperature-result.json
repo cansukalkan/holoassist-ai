@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "equipment_id": "synthetic-rig",
+  "sensor_id": "synthetic-temperature",
+  "quantity": "temperature",
+  "unit": "degC",
+  "provenance": "simulated",
+  "guidance_allowed": false,
+  "sample_count": 6,
+  "start_utc": "2026-10-21T10:00:00Z",
+  "end_utc": "2026-10-21T10:00:50Z",
+  "status": "summary_available",
+  "reason_code": "descriptive_statistics_only",
+  "invalid_quality_indices": [],
+  "missing_information": [],
+  "statistics": {
+    "schema_version": "1.0",
+    "minimum": 25.0,
+    "maximum": 35.0,
+    "mean": 30.0,
+    "median": 30.0,
+    "first_value": 25.0,
+    "last_value": 35.0,
+    "delta": 10.0,
+    "duration_seconds": 50.0,
+    "slope_per_second": 0.2,
+    "slope_unit": "degC/s",
+    "slope_direction": "positive"
+  },
+  "outliers": {
+    "schema_version": "1.0",
+    "method": "modified_z_score_mad",
+    "threshold": 3.5,
+    "status": "evaluated",
+    "sample_indices": []
+  }
+}

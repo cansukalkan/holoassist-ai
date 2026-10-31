@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "review_id": "synthetic-review-invalid-part",
+  "analysis_request_id": "synthetic-analysis-demo-1",
+  "catalog_id": "synthetic-instruction-catalog",
+  "catalog_version": "test-1",
+  "context_digest": "783433407b74ab845881f80812d08f5adb8e9b9d5252260d996dd36078676312",
+  "source_kind": "synthetic",
+  "guidance_allowed": false,
+  "status": "blocked",
+  "reason_code": "plan_not_displayable",
+  "steps": [
+    {
+      "schema_version": "1.0",
+      "step_id": "step-0",
+      "instruction_id": "demo-information",
+      "part_id": "unregistered-part",
+      "risk": "informational",
+      "status": "blocked",
+      "reason_code": "part_mismatch",
+      "citations": [],
+      "display_text": null
+    }
+  ]
+}

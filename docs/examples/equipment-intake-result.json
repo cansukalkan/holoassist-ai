@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "status": "needs_information",
+  "equipment_id": null,
+  "missing_information": [
+    "equipment_id",
+    "manufacturer",
+    "model",
+    "manufacturer_document",
+    "power_supply_notes",
+    "reference_image_notes",
+    "sensor_notes"
+  ],
+  "pending_checks": [
+    "manufacturer_source_review",
+    "hardware_limits_review",
+    "reference_image_validation",
+    "physical_rig_validation"
+  ],
+  "real_device_ready": false,
+  "guidance_allowed": false
+}

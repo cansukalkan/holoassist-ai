@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HoloAssist AI · Kanıta Dayalı Teknik Analiz ve Güvenlik Mimarisi</title>
+  <meta name="description" content="Düşük voltajlı DC motor eğitim düzeneği için kaynak doğrulamalı teknik analiz, deterministik sensör incelemesi ve insan onaylı güvenlik kapısı prototipi.">
+  <link rel="stylesheet" href="/demo/assets/site.css?v=20261031-4">
+  <script src="/demo/assets/site.js?v=20261031-4" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Ana içeriğe geç</a>
+
+  <div class="scope-ribbon" role="region" aria-label="Kapsam ve güvenlik bildirimi">
+    <div class="container ribbon-inner">
+      <span class="ribbon-tag">SENTETİK PROTOTİP</span>
+      <p>Bu platform çalışan bir saha teşhis veya otonom bakım ürünü değildir. Tüm canlı API yanıtları sabit <code>synthetic</code> / <code>simulated</code> veriyle üretilir; <code>guidance_allowed</code> her koşulda <code>false</code> kalır.</p>
+      <div class="ribbon-status">
+        <span class="status-dot" id="api-dot" aria-hidden="true"></span>
+        <span id="api-live-label" role="status">API durumu kontrol ediliyor…</span>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container nav-bar">
+      <a class="brand" href="/">
+        <span class="brand-mark" aria-hidden="true">H<span>·</span></span>
+        <span class="brand-text">holoassist<span class="brand-badge">AI</span></span>
+      </a>
+
+      <nav class="primary-nav" aria-label="Ana bölümler">
+        <a href="#sandbox">Canlı API Kum Havuzu</a>
+        <a href="#architecture">Sistem Mimarisi</a>
+        <a href="#safety">Güvenlik İlkeleri</a>
+        <a href="#contracts">Veri Sözleşmeleri</a>
+        <a href="#governance">Doğrulama Durumu</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-ghost" href="/docs">OpenAPI Şeması ↗</a>
+        <a class="btn btn-primary" href="/demo">İnceleme Konsolu →</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">
+            <span class="eyebrow-dot" aria-hidden="true"></span>
+            ENDÜSTRİYEL YAPAY ZEKÂ MÜHENDİSLİK PLATFORMU · V0.1
+          </div>
+          <h1>Kanıt zinciri doğrulanmadan tek bir adım bile gösterilmez.</h1>
+          <p class="hero-lead">
+            HoloAssist AI; düşük voltajlı DC motor eğitim düzeneği için tasarlanan, doküman alıntılarını sayfa ve SHA-256 özetiyle kilitleyen, çelişkili kanıtları gizlemeyen ve kritik adımları kalıcı insan onayına bağlayan çok katmanlı bir teknik analiz mimarisidir.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-accent btn-lg" href="#sandbox">Canlı Kum Havuzunu Dene ↓</a>
+            <a class="btn btn-outline-light btn-lg" href="/demo">Tam Ekran Demo Paneli →</a>
+          </div>
+
+          <dl class="hero-pillars" aria-label="Temel mimari garantiler">
+            <div>
+              <dt>Sürümlü Sözleşmeler</dt>
+              <dd>Pydantic v2 · <code>extra="forbid"</code></dd>
+            </div>
+            <div>
+              <dt>Kaynak Zorunluluğu</dt>
+              <dd>Belge, sürüm, sayfa ve SHA-256</dd>
+            </div>
+            <div>
+              <dt>Fiziksel Müdahale İzni</dt>
+              <dd><code>guidance_allowed: false</code></dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="hero-visual" aria-label="Temsili DC motor şeması ve canlı durum özeti">
+          <div class="rig-card">
+            <div class="rig-card-head">
+              <div>
+                <span class="rig-kicker">TEMSİLİ TEKNİK ŞEMA · GERÇEK KAMERA/AR DEĞİLDİR</span>
+                <h2>Düşük Voltajlı DC Motor Eğitim Düzeneği</h2>
+              </div>
+              <span class="rig-chip" id="rig-active-badge">Parça: demo-label</span>
+            </div>
+
+            <div class="rig-stage">
+              <svg viewBox="0 0 540 270" role="img" aria-labelledby="hero-rig-title">
+                <title id="hero-rig-title">Düşük voltajlı DC motor eğitim düzeneğinin temsili mühendislik şeması. Gerçek görüntü tanıma veya AR oturumu değildir.</title>
+                <defs>
+                  <linearGradient id="casingGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#2a4353"/>
+                    <stop offset="50%" stop-color="#39586b"/>
+                    <stop offset="100%" stop-color="#192c38"/>
+                  </linearGradient>
+                  <linearGradient id="shaftGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#dce7ec"/>
+                    <stop offset="50%" stop-color="#9fb4bf"/>
+                    <stop offset="100%" stop-color="#607784"/>
+                  </linearGradient>
+                  <pattern id="techGrid" width="22" height="22" patternUnits="userSpaceOnUse">
+                    <path d="M 22 0 L 0 0 0 22" fill="none" stroke="#18313f" stroke-width="0.8"/>
+                  </pattern>
+                </defs>
+
+                <rect width="540" height="270" fill="#0d1e28"/>
+                <rect width="540" height="270" fill="url(#techGrid)"/>
+
+                <!-- Base plate -->
+                <path d="M110 206 L418 206 L444 228 L86 228 Z" fill="#152a36" stroke="#2f4d5e" stroke-width="1.2"/>
+                <rect x="166" y="182" width="184" height="24" rx="3" fill="#1e3746" stroke="#39596b"/>
+
+                <!-- Commutator / Critical End Cap -->
+                <g id="svg-critical-zone" class="svg-zone">
+                  <rect x="122" y="88" width="48" height="96" rx="6" fill="#233846" stroke="#537588" stroke-width="1.5"/>
+                  <path d="M122 108 L82 96 M122 162 L82 174" stroke="#d97706" stroke-width="3.2" stroke-linecap="round"/>
+                  <circle cx="82" cy="96" r="4.5" fill="#fbbf24"/>
+                  <circle cx="82" cy="174" r="4.5" fill="#38bdf8"/>
+                </g>
+
+                <!-- Stator / Main Body & Label -->
+                <g id="svg-label-zone" class="svg-zone active">
+                  <rect x="170" y="78" width="182" height="116" rx="8" fill="url(#casingGrad)" stroke="#64889a" stroke-width="1.6"/>
+                  <line x1="202" y1="84" x2="202" y2="188" stroke="#4d6e80" stroke-width="1.2"/>
+                  <line x1="318" y1="84" x2="318" y2="188" stroke="#4d6e80" stroke-width="1.2"/>
+                  <!-- Nameplate (`demo-label`) -->
+                  <rect x="220" y="108" width="84" height="48" rx="4" fill="#102530" stroke="#34d399" stroke-width="1.8"/>
+                  <line x1="230" y1="122" x2="294" y2="122" stroke="#5eead4" stroke-width="2"/>
+                  <line x1="230" y1="133" x2="282" y2="133" stroke="#7da0b0" stroke-width="1.5"/>
+                  <line x1="230" y1="143" x2="270" y2="143" stroke="#7da0b0" stroke-width="1.5"/>
+                </g>
+
+                <!-- Rotor Front Bell & Shaft -->
+                <path d="M352 90 L382 100 L382 172 L352 182 Z" fill="#294352" stroke="#5c7e90" stroke-width="1.4"/>
+                <rect x="382" y="127" width="88" height="18" rx="3" fill="url(#shaftGrad)" stroke="#8da4b0"/>
+                <ellipse cx="470" cy="136" rx="4" ry="9" fill="#cbd8df"/>
+
+                <!-- Tracking Reticle Callout -->
+                <g id="svg-reticle">
+                  <circle cx="262" cy="132" r="36" fill="none" stroke="#34d399" stroke-width="1.4" stroke-dasharray="5 4"/>
+                  <path d="M262 96 V50 H356" fill="none" stroke="#34d399" stroke-width="1.3"/>
+                  <rect x="356" y="36" width="154" height="28" rx="5" fill="#102935" stroke="#2d6a62"/>
+                  <text id="svg-callout-text" x="366" y="54" fill="#6ee7b7" font-size="11" font-family="Segoe UI, Arial, sans-serif" font-weight="600">demo-label · Kaynak doğrulandı</text>
+                </g>
+
+                <!-- Critical Callout -->
+                <path d="M146 88 V50 H52" fill="none" stroke="#648293" stroke-width="1.1" stroke-dasharray="3 3"/>
+                <text x="24" y="42" fill="#9fb5c2" font-size="10" font-family="Segoe UI, Arial, sans-serif">Fırça/komütatör (kritik)</text>
+              </svg>
+            </div>
+
+            <div class="rig-telemetry-bar">
+              <div>
+                <small>SUNUCU SAĞLIK DURUMU</small>
+                <strong id="hero-health-value">Kontrol ediliyor…</strong>
+              </div>
+              <div>
+                <small>KAYIT DEPOSU (/ready)</small>
+                <strong id="hero-ready-value">Kontrol ediliyor…</strong>
+              </div>
+              <div>
+                <small>AKTİF KORUMA</small>
+                <strong>64 KiB sınır · Katı CSP</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-strip" aria-label="Mühendislik standartları">
+      <div class="container trust-grid">
+        <div class="trust-item">
+          <span class="trust-code">01 · SÖZLEŞME KİLİDİ</span>
+          <strong>İstemci Verisine Güvenilmez</strong>
+          <p>İstemci <code>approval</code>, <code>catalog</code> veya <code>analysis</code> gönderemez; ek alanlar <code>HTTP 422</code> ile reddedilir.</p>
+        </div>
+        <div class="trust-item">
+          <span class="trust-code">02 · ATOMİK GİZLEME</span>
+          <strong>Şüphede Tam Karartma</strong>
+          <p>Takip kaybı, bilinmeyen parça veya onay bekleyen kritik adımda tüm talimat ve alıntılar gizlenir.</p>
+        </div>
+        <div class="trust-item">
+          <span class="trust-code">03 · DÜRÜST BELİRSİZLİK</span>
+          <strong>Sahte Yüzde Güven Yok</strong>
+          <p>Çelişkili kaynaklar tek bir olasılık yüzdesine indirgenmez; destekleyen ve karşıt kanıt birlikte sunulur.</p>
+        </div>
+        <div class="trust-item">
+          <span class="trust-code">04 · KÖKEN AYRIMI</span>
+          <strong>Simülasyon ≠ Ölçüm</strong>
+          <p>Sentetik zaman serileri <code>simulated</code> olarak mühürlenir; hiçbir aşamada <code>measured</code> olarak işaretlenmez.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="sandbox" class="section sandbox-section" aria-labelledby="sandbox-title">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">CANLI DOĞRULAMA KUM HAVUZU</div>
+            <h2 id="sandbox-title">Gerçek FastAPI uçlarını tarayıcıda sınayın</h2>
+            <p>Aşağıdaki tüm sekmeler doğrudan çalışan yerel sunucuya (<code>/v1/demo/*</code>) bağlanır. İstemci tarafında hiçbir karar uydurulmaz; yanıt şemaları gösterimden önce doğrulanır.</p>
+          </div>
+          <div class="sandbox-export-box">
+            <button id="site-export-btn" class="btn btn-primary" type="button">Bağımsız JSON Raporu İndir ↓</button>
+            <span id="site-export-status" class="export-feedback" role="status"></span>
+          </div>
+        </div>
+
+        <div class="module-tabs" role="tablist" aria-label="Canlı API modülleri">
+          <button class="module-tab active" role="tab" aria-selected="true" aria-controls="panel-safety" id="tab-safety" data-module="safety" type="button">
+            <span>01</span> Güvenlik ve Gösterim Kapısı
+          </button>
+          <button class="module-tab" role="tab" aria-selected="false" aria-controls="panel-sensors" id="tab-sensors" data-module="sensors" type="button">
+            <span>02</span> Deterministik Sensör Analizi
+          </button>
+          <button class="module-tab" role="tab" aria-selected="false" aria-controls="panel-diagnostic" id="tab-diagnostic" data-module="diagnostic" type="button">
+            <span>03</span> Kanıt ve Çelişki Matrisi
+          </button>
+          <button class="module-tab" role="tab" aria-selected="false" aria-controls="panel-benchmark" id="tab-benchmark" data-module="benchmark" type="button">
+            <span>04</span> Sentetik Benchmark &amp; Önbellek
+          </button>
+        </div>
+
+        <!-- TAB PANEL 1: SAFETY GATE -->
+        <div id="panel-safety" class="module-panel" role="tabpanel" aria-labelledby="tab-safety">
+          <div class="sandbox-split">
+            <div class="sandbox-controls">
+              <div class="subhead">
+                <h3>Senaryo Seçimi</h3>
+                <span class="endpoint-pill">POST /v1/demo/safety/evaluate</span>
+              </div>
+              <p class="helper-copy">Her buton sunucuya gerçek bir HTTP POST isteği gönderir ve yanıtı hem son kullanıcı kartı hem de ham protokol çıktısı olarak gösterir.</p>
+
+              <div class="scenario-list" role="group" aria-label="Güvenlik kapısı test senaryoları">
+                <button class="scenario-btn selected" data-safety="information" aria-pressed="true" type="button">
+                  <span class="sc-badge ok">200</span>
+                  <span>
+                    <strong>Kaynaklı Bilgi Kartı</strong>
+                    <small>Katalog, parça, takip ve destekleyen doküman alıntısı tam eşleşir.</small>
+                  </span>
+                </button>
+
+                <button class="scenario-btn" data-safety="critical" aria-pressed="false" type="button">
+                  <span class="sc-badge warn">200</span>
+                  <span>
+                    <strong>Kritik Müdahale Adımı</strong>
+                    <small>Kalıcı backend insan onayı gerektiği için metin ve alıntılar atomik gizlenir.</small>
+                  </span>
+                </button>
+
+                <button class="scenario-btn" data-safety="tracking" aria-pressed="false" type="button">
+                  <span class="sc-badge warn">200</span>
+                  <span>
+                    <strong>Parça Takip Kaybı (tracking: lost)</strong>
+                    <small>Konum doğrulanamadığında eski kart düşürülür; <code>needs_information</code> döner.</small>
+                  </span>
+                </button>
+
+                <button class="scenario-btn" data-safety="unknown" aria-pressed="false" type="button">
+                  <span class="sc-badge err">200</span>
+                  <span>
+                    <strong>Katalog Dışı / Uyuşmayan Parça</strong>
+                    <small><code>unknown-part</code> gönderildiğinde güvenlik kapısı <code>blocked</code> kararı üretir.</small>
+                  </span>
+                </button>
+
+                <button class="scenario-btn" data-safety="injection" aria-pressed="false" type="button">
+                  <span class="sc-badge err">422</span>
+                  <span>
+                    <strong>Yetkisiz Alan Enjeksiyon Testi</strong>
+                    <small>İstemci <code>"approval": "bypass"</code> ekler; sunucu değeri yansıtmadan <code>422</code> ile reddeder.</small>
+                  </span>
+                </button>
+              </div>
+            </div>
+
+            <div class="sandbox-output">
+              <div class="output-card">
+                <div class="output-card-head">
+                  <h3>Doğrulanmış İstemci Görünümü</h3>
+                  <span class="meta-pill" id="safety-http-meta">Bekleniyor…</span>
+                </div>
+                <div id="safety-rendered" class="rendered-body" aria-live="polite">
+                  <div class="placeholder-box">Güvenlik değerlendirmesi yükleniyor…</div>
+                </div>
+              </div>
+
+              <div class="protocol-card">
+                <div class="protocol-head">
+                  <span>CANLI SÖZLEŞME DENETÇİSİ (JSON)</span>
+                  <span id="safety-digest-short" class="mono-muted">schema_version: 1.0</span>
+                </div>
+                <div class="protocol-columns">
+                  <div>
+                    <div class="code-label">GÖNDERİLEN İSTEK (REQUEST)</div>
+                    <pre id="safety-req-json" class="code-block">{}</pre>
+                  </div>
+                  <div>
+                    <div class="code-label">SUNUCU YANITI (RESPONSE)</div>
+                    <pre id="safety-res-json" class="code-block">{}</pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB PANEL 2: SENSORS -->
+        <div id="panel-sensors" class="module-panel hidden" role="tabpanel" aria-labelledby="tab-sensors">
+          <div class="panel-surface">
+            <div class="sensor-header-row">
+              <div>
+                <h3>Sabit Sentetik Zaman Serisi Analizi</h3>
+                <p class="helper-copy">İstatistikler, zaman eğimi ve MAD tabanlı aykırı adaylar sunucudaki <code>analyze_series</code> modülünde hesaplanır. Canlı sensör akışı değildir.</p>
+              </div>
+              <div class="pill-group" role="group" aria-label="Sentetik sensör seçimi">
+                <button class="pill-btn selected" data-sensor-pick="current" aria-pressed="true" type="button">Akım (A)</button>
+                <button class="pill-btn" data-sensor-pick="temperature" aria-pressed="false" type="button">Sıcaklık (°C)</button>
+                <button class="pill-btn" data-sensor-pick="vibration" aria-pressed="false" type="button">Titreşim (m/s²)</button>
+              </div>
+            </div>
+            <div id="site-sensor-output" aria-live="polite">
+              <div class="placeholder-box">Sentetik sensör verisi yükleniyor…</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB PANEL 3: DIAGNOSTIC -->
+        <div id="panel-diagnostic" class="module-panel hidden" role="tabpanel" aria-labelledby="tab-diagnostic">
+          <div class="panel-surface">
+            <div class="sensor-header-row">
+              <div>
+                <h3>Kaynak Bağlama ve Karşıt Kanıt Kontrolü</h3>
+                <p class="helper-copy">Kayıtlı sentetik <code>AnalysisState</code> üzerinde destekleyen ve çelişen doküman kayıtlarını birlikte denetler. Gerçek arıza teşhisi veya bakım talimatı üretmez.</p>
+              </div>
+              <div class="pill-group" role="group" aria-label="Kanıt bütünlüğü senaryosu">
+                <button class="pill-btn selected" data-diag-pick="complete" aria-pressed="true" type="button">Tüm Test Kayıtları Mevcut</button>
+                <button class="pill-btn" data-diag-pick="missing_counter_evidence" aria-pressed="false" type="button">Karşıt Kayıt Eksik</button>
+              </div>
+            </div>
+            <div id="site-diag-output" aria-live="polite">
+              <div class="placeholder-box">Kaynak eşleşmeleri yükleniyor…</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB PANEL 4: SYNTHETIC BENCHMARK -->
+        <div id="panel-benchmark" class="module-panel hidden" role="tabpanel" aria-labelledby="tab-benchmark">
+          <div class="panel-surface">
+            <div class="sensor-header-row">
+              <div>
+                <h3>Tekrarlanabilir Sentetik Benchmark ve RAG Önbellek Doğrulaması</h3>
+                <p class="helper-copy">Dondurulmuş sentetik veri setleri üzerinde Görüntü İşleme, RAG + Önbellek, Tanı, 3D Anchor ve Güvenlik kapılarını canlı doğrular (<code>GET /v1/demo/evaluation</code>).</p>
+              </div>
+              <div class="pill-group">
+                <button id="site-bench-refresh" class="pill-btn selected" type="button">Benchmark Yenile ↻</button>
+              </div>
+            </div>
+            <div id="site-bench-output" aria-live="polite">
+              <div class="placeholder-box">Sentetik benchmark metrikleri yükleniyor…</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="architecture" class="section arch-section" aria-labelledby="arch-title">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">ÇOK KATMANLI MÜHENDİSLİK MİMARİSİ</div>
+            <h2 id="arch-title">Deterministik araçlar ile kanıt doğrulama katmanlarının ayrımı</h2>
+            <p>Her modül yalnızca doğrulanmış Pydantic sözleşmeleriyle konuşur. Belirsizlik veya şema uyuşmazlığı durumunda akış bir sonraki katmana sızmadan durdurulur.</p>
+          </div>
+        </div>
+
+        <div class="pipeline-diagram" aria-label="Veri ve kanıt doğrulama hattı">
+          <div class="pipe-step">
+            <span class="pipe-index">KATMAN 01</span>
+            <strong>Kaynak Parçalama &amp; Chroma RAG</strong>
+            <p>Sayfa, bölüm, sürüm ve SHA-256 koruyan doküman parçalayıcı; ekipman filtreli yerel indeksleme.</p>
+            <code>holoassist.rag</code>
+          </div>
+          <div class="pipe-arrow" aria-hidden="true">→</div>
+          <div class="pipe-step">
+            <span class="pipe-index">KATMAN 02</span>
+            <strong>Referans Görüntü &amp; Sensör Analizi</strong>
+            <p>ORB/RANSAC homografi doğrulaması ve zaman serisi istatistik/MAD aday hesaplaması.</p>
+            <code>vision · analytics</code>
+          </div>
+          <div class="pipe-arrow" aria-hidden="true">→</div>
+          <div class="pipe-step">
+            <span class="pipe-index">KATMAN 03</span>
+            <strong>Sınırlı Supervisor &amp; Hipotez</strong>
+            <p>Sonlu LangGraph durum akışı; destekleyen ve karşıt kanıtların ayrı etiketlenmesi.</p>
+            <code>agents · supervisor</code>
+          </div>
+          <div class="pipe-arrow" aria-hidden="true">→</div>
+          <div class="pipe-step highlight">
+            <span class="pipe-index">KATMAN 04</span>
+            <strong>Safety Gate &amp; Kalıcı Onay</strong>
+            <p>Katalog/takip/kaynak kapısı ve PostgreSQL/SQLite üzerinde bağlam özetli insan onayı.</p>
+            <code>safety · api</code>
+          </div>
+        </div>
+
+        <div class="arch-grid">
+          <article class="arch-card">
+            <div class="arch-card-top">
+              <span class="arch-tag">T02 · SÖZLEŞMELER</span>
+              <span class="status-chip ready">Doğrulandı</span>
+            </div>
+            <h3>Sürümlü Kanıt ve Gözlem Şemaları</h3>
+            <p><code>Evidence</code>, <code>Observation</code> ve <code>ObservationSeries</code> modelleri; eksik sayfa/bölüm, geçersiz zaman sırası, NaN değerler ve <code>simulated</code>/<code>measured</code> karışımını şema sınırında reddeder.</p>
+          </article>
+
+          <article class="arch-card">
+            <div class="arch-card-top">
+              <span class="arch-tag">T03–T04 · BİLGİ ERİŞİMİ</span>
+              <span class="status-chip ready">Baseline Hazır</span>
+            </div>
+            <h3>Kaynak Korumalı Doküman Arama</h3>
+            <p>Teknik metinler talimat değil salt veri olarak işlenir. Her parça kararlı kimlik, doküman sürümü ve SHA-256 özetiyle Chroma koleksiyonundan ekipman bazlı sorgulanır.</p>
+          </article>
+
+          <article class="arch-card">
+            <div class="arch-card-top">
+              <span class="arch-tag">T05 · GÖRÜNTÜ İŞLEME</span>
+              <span class="status-chip proto">Sentetik Prototip</span>
+            </div>
+            <h3>Referans Görsel Eşleştirme Kapısı</h3>
+            <p>OpenCV ORB özellikleri ve RANSAC perspektif kontrolü ile düşük güven veya çerçeve dışı izdüşümlerde ekipman kimliği sızdırmadan <code>unknown</code> / <code>low_confidence</code> döndürür.</p>
+          </article>
+
+          <article class="arch-card">
+            <div class="arch-card-top">
+              <span class="arch-tag">T06–T07 · ORKESTRASYON</span>
+              <span class="status-chip proto">Sentetik Prototip</span>
+            </div>
+            <h3>Sonlu Durum Akışı ve Çelişki Matrisi</h3>
+            <p>Üç düğümlü sınırlı LangGraph yönlendirmesi izlenebilir <code>trace</code> üretir. Karşıt kanıt eksikliğinde tek taraflı doğrulama yanlılığını önlemek için olasılıklar gizlenir.</p>
+          </article>
+
+          <article class="arch-card">
+            <div class="arch-card-top">
+              <span class="arch-tag">T08 · TELEMETRİ</span>
+              <span class="status-chip proto">Sentetik Prototip</span>
+            </div>
+            <h3>Deterministik Zaman Serisi İncelemesi</h3>
+            <p>Düzensiz zaman aralıklı örneklerde gerçek geçen saniye üzerinden eğim ve medyan mutlak sapma (MAD) hesaplar; sıfır MAD veya düşük veri kalitesinde sessiz varsayım yapmaz.</p>
+          </article>
+
+          <article class="arch-card">
+            <div class="arch-card-top">
+              <span class="arch-tag">T09–T11 · GÜVENLİK &amp; API</span>
+              <span class="status-chip ready">PostgreSQL + HTTP</span>
+            </div>
+            <h3>Kalıcı İnceleme Yaşam Döngüsü</h3>
+            <p>Operatör ve inceleyici rollerini ayırır; <code>context_digest</code> eşleşmesi, süre sonu (TTL), tek kullanımlık tüketim ve değiştirilemez denetim (audit) kayıtlarını uygular.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="safety" class="section safety-section" aria-labelledby="safety-title">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">SAVUNMA DERİNLİĞİ (DEFENSE-IN-DEPTH)</div>
+            <h2 id="safety-title">Endüstriyel ortamlarda yapay zekâ risklerini sınırlayan 6 mühendislik kuralı</h2>
+            <p>Sıradan sohbet arayüzlerinden farklı olarak HoloAssist AI, dil modeli veya istemci çıktısını doğrudan kullanıcıya yansıtmaz.</p>
+          </div>
+        </div>
+
+        <div class="guardrail-grid">
+          <div class="guardrail">
+            <div class="guardrail-num">KURAL 01</div>
+            <h3>Kaynaksız Adım Gösterilmez</h3>
+            <p>Katalogdaki bir bilgilendirme metni, sunucudaki doğrulanmış kanıt parçasının birebir alıntısı, sayfa/bölüm bilgisi ve sürümüyle eşleşmiyorsa istemciye iletilmez.</p>
+          </div>
+          <div class="guardrail">
+            <div class="guardrail-num">KURAL 02</div>
+            <h3>Kritik İşlemde Kalıcı İnsan Onayı</h3>
+            <p>Elektriksel veya mekanik risk taşıyan adımlar istemcinin göndereceği bir <code>approved=true</code> alanıyla açılamaz; sunucu tarafında yetkili inceleyici kaydı zorunludur.</p>
+          </div>
+          <div class="guardrail">
+            <div class="guardrail-num">KURAL 03</div>
+            <h3>Komut Enjeksiyonu İzolasyonu</h3>
+            <p>Doküman içerikleri sistem talimatı değil doğrulanacak veri olarak ele alınır. Web arayüzü tüm dinamik alanları <code>textContent</code> ile yazar ve katı CSP uygular.</p>
+          </div>
+          <div class="guardrail">
+            <div class="guardrail-num">KURAL 04</div>
+            <h3>Sırların ve Anahtarların Ayrımı</h3>
+            <p>API anahtarları ve veritabanı kimlik bilgileri yalnızca sunucu ortamında (<code>.env</code>) tutulur; Unity istemcisine, tarayıcıya, hata mesajlarına veya Git geçmişine girmez.</p>
+          </div>
+          <div class="guardrail">
+            <div class="guardrail-num">KURAL 05</div>
+            <h3>Protokol Sınırında Boyut ve Hata Koruması</h3>
+            <p>ASGI katmanı JSON ayrıştırmadan önce gövdeyi en fazla <code>64 KiB</code> ile sınırlar (<code>413</code>). Doğrulama hataları gönderilen veriyi dışarı yansıtmaz.</p>
+          </div>
+          <div class="guardrail">
+            <div class="guardrail-num">KURAL 06</div>
+            <h3>Doğrulanmamış Başarı İddiası Yasağı</h3>
+            <p>Gerçek motor modeli, lisanslı üretici kılavuzu ve fiziksel cihaz testleri tamamlanmadan doğruluk yüzdesi veya saha hazırlığı iddiasında bulunulmaz.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contracts" class="section contracts-section" aria-labelledby="contracts-title">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">İSTEMCİ VE UNITY AKTARIM SÖZLEŞMESİ</div>
+            <h2 id="contracts-title">Tek doğruluk kaynağı olarak sürümlü JSON şemaları</h2>
+            <p>Web inceleme ekranı ve gelecekteki Unity 3D/AR istemcisi aynı HTTP sözleşmelerini tüketir; iş kuralları istemcide yeniden hesaplanmaz.</p>
+          </div>
+        </div>
+
+        <div class="contract-table-wrap">
+          <table class="contract-table">
+            <caption>Backend güvenlik raporu alanları ve istemci uygulama zorunlulukları</caption>
+            <thead>
+              <tr>
+                <th scope="col">Sözleşme Alanı</th>
+                <th scope="col">Örnek Değer</th>
+                <th scope="col">Web ve Unity İstemci Sorumluluğu</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>schema_version</code></td>
+                <td><code>"1.0"</code></td>
+                <td>Desteklenmeyen şema sürümünde tüm gösterimi reddet ve güvenli hata durumuna geç.</td>
+              </tr>
+              <tr>
+                <td><code>source_kind</code></td>
+                <td><code>"synthetic"</code></td>
+                <td>Sentetik veri etiketini kullanıcı arayüzünde gizlenemez biçimde görünür tut.</td>
+              </tr>
+              <tr>
+                <td><code>status</code></td>
+                <td><code>"display_allowed"</code></td>
+                <td>Yalnızca <code>display_allowed</code> durumunda bilgi kartını aç; diğer tüm durumlarda içeriği gizle.</td>
+              </tr>
+              <tr>
+                <td><code>guidance_allowed</code></td>
+                <td><code>false</code></td>
+                <td>Şu an her zaman <code>false</code>; istemci fiziksel müdahale veya bakım yönlendirmesi başlatamaz.</td>
+              </tr>
+              <tr>
+                <td><code>part_id</code></td>
+                <td><code>"demo-label"</code></td>
+                <td>Yalnızca katalogda doğrulanmış 3D parça kimliğiyle eşleştir; bilinmeyen parçada kart gösterme.</td>
+              </tr>
+              <tr>
+                <td><code>document_id · page · section</code></td>
+                <td><code>Sayfa 1 · Bölüm</code></td>
+                <td>Kaynak bilgisini ve doküman sürümünü adım metninden ayırmadan aynı kartta koru.</td>
+              </tr>
+              <tr>
+                <td><code>evidence_id · context_digest</code></td>
+                <td><code>SHA-256 özeti</code></td>
+                <td>Denetim izlenebilirliği ve inceleme bütünlüğü için kanıt kimliğini değiştirme.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="governance" class="section governance-section" aria-labelledby="gov-title">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">MÜHENDİSLİK ŞEFFAFLIĞI VE YOL HARİTASI</div>
+            <h2 id="gov-title">Bugün doğrulanmış olanlar ve sırada bekleyen adımlar</h2>
+            <p>Proje durumu gerçek otomatik test koşularına dayanır; henüz yapılmamış donanım veya AR çalışmaları tamamlanmış gibi sunulmaz.</p>
+          </div>
+        </div>
+
+        <div class="governance-columns">
+          <div class="gov-box verified">
+            <h3>✔ Kod ve Otomatik Testlerle Doğrulananlar</h3>
+            <ul class="gov-list">
+              <li><strong>Veri Sözleşmeleri ve RAG Altyapısı:</strong> Sürümlü kanıt/gözlem modelleri, sayfa ve SHA-256 koruyan doküman parçalama, yerel Chroma arama baseline'ı.</li>
+              <li><strong>Deterministik Analiz Prototipleri:</strong> Sentetik referans görüntü eşleştirme (ORB/RANSAC), zaman serisi eğim/MAD analizi, sınırlı LangGraph yönlendirmesi ve karşıt kanıt kontrolü.</li>
+              <li><strong>Güvenlik Kapısı ve Kalıcı İnceleme:</strong> SQLite ve Docker PostgreSQL üzerinde çalışan inceleme/audit tabloları, Bearer rol ayrımı, <code>64 KiB</code> istek sınırı.</li>
+              <li><strong> Paketlenmiş Web Arayüzü ve Dışa Aktarım:</strong> Harici bağımlılık gerektirmeyen FastAPI tabanlı inceleme konsolu (<code>/demo</code>) ve bağımsız JSON denetim raporu indirme ucu.</li>
+            </ul>
+          </div>
+
+          <div class="gov-box pending">
+            <h3>⏳ Açık Donanım ve İleri Aşama Gereksinimleri</h3>
+            <ul class="gov-list">
+              <li><strong>T01 Gerçek Ekipman Seçimi:</strong> Fiziksel düşük voltajlı DC motor modelinin, çalışma sınırlarının ve lisanslı üretici dokümanının kesinleştirilmesi.</li>
+              <li><strong>Birleşik Ajan ve LLM Akışı:</strong> Canlı Chroma sorgularının, sensör özetlerinin ve dil modeli açıklamalarının uçtan uca tek analiz grafında birleştirilmesi.</li>
+              <li><strong>Unity UI ve AR Saha Doğrulaması (T12–T14):</strong> Doğrulanmış 3D motor modeli üzerinde parça eşleme, kamera takip kaybı testleri ve gerçek cihaz ölçümleri.</li>
+              <li><strong>Nicel Değerlendirme Raporu (T15):</strong> Dondurulmuş veri setleri üzerinde tekrar üretilebilir erişim, tanıma ve gecikme ölçümleri.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cta-banner">
+          <div>
+            <h2>Tüm senaryoları tam ekran inceleme konsolunda test edin</h2>
+            <p>Odaklı çalışma alanı görünümü, ham sensör veri tabloları ve OpenAPI şema belgeleri yerel sunucuda hazırdır.</p>
+          </div>
+          <div class="cta-buttons">
+            <a class="btn btn-accent" href="/demo">İnceleme Konsolunu Aç (/demo) →</a>
+            <a class="btn btn-outline-light" href="/docs">OpenAPI Belgeleri (/docs) ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>HoloAssist AI</strong> · Kanıta dayalı teknik analiz ve güvenlik mimarisi prototipi
+      </div>
+      <div class="footer-links">
+        <a href="/demo">İnceleme Paneli</a>
+        <a href="/docs">API Sözleşmeleri</a>
+        <a href="/health">Sağlık Ucu (/health)</a>
+        <a href="/ready">Hazırlık Ucu (/ready)</a>
+      </div>
+      <div class="footer-note">
+        Sentetik veri ortamı · Gerçek motor ve AR cihaz doğrulaması yapılmadı · <code>guidance_allowed: false</code>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+

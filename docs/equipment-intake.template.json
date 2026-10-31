@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "scope": "low_voltage_dc_educational",
+  "equipment_id": null,
+  "manufacturer": null,
+  "model": null,
+  "manufacturer_document": null,
+  "power_supply_notes": null,
+  "reference_image_notes": null,
+  "sensor_notes": null
+}

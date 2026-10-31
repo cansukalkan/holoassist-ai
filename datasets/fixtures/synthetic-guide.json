@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "document_id": "holoassist-synthetic-guide",
+  "document_version": "test-1",
+  "equipment_id": "synthetic-rig",
+  "title": "HoloAssist sentetik test belgesi — üretici kılavuzu değildir",
+  "source_uri": "fixture://holoassist/synthetic-guide",
+  "source_kind": "synthetic",
+  "license": "CC0-1.0",
+  "permission_reference": "Bu depoda oluşturulmuş sentetik test metni; CC0-1.0 ile sunulur.",
+  "blocks": [
+    {
+      "page": 1,
+      "section": "Test kapsamı",
+      "text": "Bu belge yalnızca yazılım testleri için oluşturulmuş sentetik bir veri kaynağıdır. Gerçek bir DC motor üreticisini, modelini veya bakım prosedürünü temsil etmez. İçerik teknik bakım rehberliği olarak kullanılmamalıdır. Sayfa ve bölüm bilgileri, parçalama sırasında kaynak konumunun korunmasını doğrulamak için eklenmiştir."
+    },
+    {
+      "page": 2,
+      "section": "Sentetik sensör kayıtları",
+      "text": "Test düzeneğinin sıcaklık kanalı temperature ve degC, akım kanalı current ve A, titreşim kanalı vibration ve m/s2 alanlarıyla temsil edilir. Sentetik kayıtlarda provenance alanı simulated olarak belirtilir. Bu metin bir ölçüm sonucu, arıza belirtisi veya güvenli çalışma sınırı tanımlamaz."
+    }
+  ]
+}

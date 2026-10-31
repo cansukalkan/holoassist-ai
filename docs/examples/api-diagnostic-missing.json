@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "request_id": "synthetic-analysis-demo-1",
+  "catalog_id": "synthetic-diagnostic-catalog",
+  "catalog_version": "test-1",
+  "source_kind": "synthetic",
+  "guidance_allowed": false,
+  "status": "needs_information",
+  "hypotheses": [],
+  "assertion_matches": [],
+  "missing_information": [
+    "source_for:demo_load_state:load-contradiction"
+  ],
+  "reason_code": "catalog_evidence_incomplete"
+}

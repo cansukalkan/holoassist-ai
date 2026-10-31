@@ -1,0 +1,81 @@
+{
+  "instructions": [
+    {
+      "sources": [
+        {
+          "relation": "supports",
+          "quote": "SENTETİK KART: Bu ekranda yalnızca test verisi gösteriliyor.",
+          "assertion_id": "demo-information-source",
+          "page": 1,
+          "section": "Sentetik talimat etiketleri",
+          "document_id": "holoassist-synthetic-safety",
+          "document_version": "test-1",
+          "checksum": "827d6251c5903fd6ea1b9b5f5f9f81953afdbf06ac33786c1b2be8e34abdca35"
+        }
+      ],
+      "risk": "informational",
+      "text": "SENTETİK KART: Bu ekranda yalnızca test verisi gösteriliyor.",
+      "instruction_id": "demo-information",
+      "part_id": "demo-label"
+    },
+    {
+      "sources": [
+        {
+          "relation": "supports",
+          "quote": "SENTETİK TEST ETİKETİ: Kritik işlem isteği.",
+          "assertion_id": "demo-critical-source",
+          "page": 1,
+          "section": "Sentetik talimat etiketleri",
+          "document_id": "holoassist-synthetic-safety",
+          "document_version": "test-1",
+          "checksum": "827d6251c5903fd6ea1b9b5f5f9f81953afdbf06ac33786c1b2be8e34abdca35"
+        }
+      ],
+      "risk": "critical",
+      "text": "SENTETİK TEST ETİKETİ: Kritik işlem isteği.",
+      "instruction_id": "demo-critical",
+      "part_id": "demo-critical-part"
+    },
+    {
+      "sources": [
+        {
+          "relation": "supports",
+          "quote": "SENTETİK TEST ETİKETİ: Yasak işlem isteği.",
+          "assertion_id": "demo-prohibited-source",
+          "page": 1,
+          "section": "Sentetik talimat etiketleri",
+          "document_id": "holoassist-synthetic-safety",
+          "document_version": "test-1",
+          "checksum": "827d6251c5903fd6ea1b9b5f5f9f81953afdbf06ac33786c1b2be8e34abdca35"
+        }
+      ],
+      "risk": "prohibited",
+      "text": "SENTETİK TEST ETİKETİ: Yasak işlem isteği.",
+      "instruction_id": "demo-prohibited",
+      "part_id": "demo-prohibited-part"
+    },
+    {
+      "sources": [
+        {
+          "relation": "supports",
+          "quote": "SENTETİK TEST ETİKETİ: Sınıflandırılmamış risk isteği.",
+          "assertion_id": "demo-unknown-risk-source",
+          "page": 1,
+          "section": "Sentetik talimat etiketleri",
+          "document_id": "holoassist-synthetic-safety",
+          "document_version": "test-1",
+          "checksum": "827d6251c5903fd6ea1b9b5f5f9f81953afdbf06ac33786c1b2be8e34abdca35"
+        }
+      ],
+      "risk": "unknown",
+      "text": "SENTETİK TEST ETİKETİ: Sınıflandırılmamış risk isteği.",
+      "instruction_id": "demo-unknown-risk",
+      "part_id": "demo-unknown-part"
+    }
+  ],
+  "scope": "synthetic_demo",
+  "catalog_version": "test-1",
+  "equipment_id": "synthetic-rig",
+  "schema_version": "1.0",
+  "catalog_id": "synthetic-instruction-catalog"
+}

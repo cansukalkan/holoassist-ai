@@ -1,0 +1,2177 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "HoloAssist synthetic demo API",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "summary": "Health",
+        "operationId": "health_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Health"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Request Entity Too Large",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ready": {
+      "get": {
+        "summary": "Ready",
+        "operationId": "ready_ready_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Readiness"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Request Entity Too Large",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/demo/safety/evaluate": {
+      "post": {
+        "summary": "Evaluate",
+        "operationId": "evaluate_v1_demo_safety_evaluate_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SafetyRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SafetyReport"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Request Entity Too Large",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/demo/reviews": {
+      "post": {
+        "tags": [
+          "local synthetic reviews"
+        ],
+        "summary": "Open Review",
+        "operationId": "open_review_v1_demo_reviews_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OpenReview"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApprovalRecord"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Request Entity Too Large",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/v1/demo/reviews/{approval_id}": {
+      "get": {
+        "tags": [
+          "local synthetic reviews"
+        ],
+        "summary": "Get Review",
+        "operationId": "get_review_v1_demo_reviews__approval_id__get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "approval_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Approval Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApprovalRecord"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Request Entity Too Large"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        }
+      }
+    },
+    "/v1/demo/reviews/{approval_id}/context": {
+      "get": {
+        "tags": [
+          "local synthetic reviews"
+        ],
+        "summary": "Context",
+        "operationId": "context_v1_demo_reviews__approval_id__context_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "approval_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Approval Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReviewContext"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Request Entity Too Large"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        }
+      }
+    },
+    "/v1/demo/reviews/{approval_id}/decision": {
+      "post": {
+        "tags": [
+          "local synthetic reviews"
+        ],
+        "summary": "Decide",
+        "operationId": "decide_v1_demo_reviews__approval_id__decision_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "approval_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Approval Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReviewDecision"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApprovalRecord"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Request Entity Too Large"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AgentError": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "node": {
+            "type": "string",
+            "enum": [
+              "supervisor",
+              "knowledge",
+              "validation"
+            ],
+            "title": "Node"
+          },
+          "code": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Code"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "node",
+          "code"
+        ],
+        "title": "AgentError"
+      },
+      "AnalysisRequest": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "request_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Request Id"
+          },
+          "equipment_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Equipment Id"
+          },
+          "mode": {
+            "type": "string",
+            "enum": [
+              "demo",
+              "real"
+            ],
+            "title": "Mode"
+          },
+          "recognition": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/RecognitionResult"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "symptom_codes": {
+            "items": {
+              "type": "string",
+              "enum": [
+                "overheating",
+                "not_rotating",
+                "unusual_vibration"
+              ]
+            },
+            "type": "array",
+            "title": "Symptom Codes",
+            "default": []
+          },
+          "sensor_series": {
+            "items": {
+              "$ref": "#/components/schemas/ObservationSeries"
+            },
+            "type": "array",
+            "title": "Sensor Series",
+            "default": []
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "request_id",
+          "equipment_id",
+          "mode"
+        ],
+        "title": "AnalysisRequest"
+      },
+      "AnalysisState": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "guidance_allowed": {
+            "type": "boolean",
+            "const": false,
+            "title": "Guidance Allowed",
+            "default": false
+          },
+          "request": {
+            "$ref": "#/components/schemas/AnalysisRequest"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "running",
+              "needs_information",
+              "blocked",
+              "ready_for_diagnostic"
+            ],
+            "title": "Status",
+            "default": "running"
+          },
+          "evidence": {
+            "items": {
+              "$ref": "#/components/schemas/DocumentChunk"
+            },
+            "type": "array",
+            "maxItems": 3,
+            "title": "Evidence",
+            "default": []
+          },
+          "missing_information": {
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "type": "array",
+            "title": "Missing Information",
+            "default": []
+          },
+          "errors": {
+            "items": {
+              "$ref": "#/components/schemas/AgentError"
+            },
+            "type": "array",
+            "title": "Errors",
+            "default": []
+          },
+          "trace": {
+            "items": {
+              "$ref": "#/components/schemas/TraceEvent"
+            },
+            "type": "array",
+            "title": "Trace",
+            "default": []
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "request"
+        ],
+        "title": "AnalysisState"
+      },
+      "ApiError": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "code": {
+            "type": "string",
+            "title": "Code"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "code"
+        ],
+        "title": "ApiError"
+      },
+      "ApprovalRecord": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "approval_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Approval Id"
+          },
+          "review_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Review Id"
+          },
+          "analysis_request_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Analysis Request Id"
+          },
+          "context_digest": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Context Digest"
+          },
+          "scope": {
+            "type": "string",
+            "const": "synthetic_demo",
+            "title": "Scope",
+            "default": "synthetic_demo"
+          },
+          "guidance_allowed": {
+            "type": "boolean",
+            "const": false,
+            "title": "Guidance Allowed",
+            "default": false
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "approved",
+              "rejected",
+              "consumed",
+              "expired",
+              "invalidated"
+            ],
+            "title": "Status"
+          },
+          "created_utc": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created Utc"
+          },
+          "updated_utc": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Updated Utc"
+          },
+          "expires_utc": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Expires Utc"
+          },
+          "decided_by": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Decided By"
+          },
+          "decided_utc": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Decided Utc"
+          },
+          "consumed_utc": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Consumed Utc"
+          },
+          "reason_code": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Reason Code"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "approval_id",
+          "review_id",
+          "analysis_request_id",
+          "context_digest",
+          "status",
+          "created_utc",
+          "updated_utc",
+          "expires_utc",
+          "reason_code"
+        ],
+        "title": "ApprovalRecord"
+      },
+      "CatalogInstruction": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "instruction_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Instruction Id"
+          },
+          "part_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Part Id"
+          },
+          "risk": {
+            "type": "string",
+            "enum": [
+              "informational",
+              "critical",
+              "prohibited",
+              "unknown"
+            ],
+            "title": "Risk"
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Text"
+          },
+          "sources": {
+            "items": {
+              "$ref": "#/components/schemas/SourceAssertion"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Sources"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "instruction_id",
+          "part_id",
+          "risk",
+          "text",
+          "sources"
+        ],
+        "title": "CatalogInstruction"
+      },
+      "DocumentChunk": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "evidence_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Evidence Id"
+          },
+          "equipment_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Equipment Id"
+          },
+          "document_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Document Id"
+          },
+          "document_version": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Document Version"
+          },
+          "checksum": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Checksum"
+          },
+          "page": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Page"
+          },
+          "section": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Section"
+          },
+          "excerpt": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Excerpt"
+          },
+          "retrieval_score": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Retrieval Score"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Title"
+          },
+          "source_uri": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Source Uri"
+          },
+          "source_kind": {
+            "type": "string",
+            "enum": [
+              "synthetic",
+              "manufacturer"
+            ],
+            "title": "Source Kind"
+          },
+          "license": {
+            "type": "string",
+            "minLength": 1,
+            "title": "License"
+          },
+          "permission_reference": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Permission Reference"
+          },
+          "block_index": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Block Index"
+          },
+          "start_char": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Start Char"
+          },
+          "end_char": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "End Char"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "evidence_id",
+          "equipment_id",
+          "document_id",
+          "document_version",
+          "checksum",
+          "excerpt",
+          "title",
+          "source_uri",
+          "source_kind",
+          "license",
+          "permission_reference",
+          "block_index",
+          "start_char",
+          "end_char"
+        ],
+        "title": "DocumentChunk",
+        "description": "Excerpt plus source policy and zero-based character offsets into its block."
+      },
+      "Health": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "status": {
+            "type": "string",
+            "const": "ok",
+            "title": "Status",
+            "default": "ok"
+          },
+          "scope": {
+            "type": "string",
+            "const": "synthetic_demo",
+            "title": "Scope",
+            "default": "synthetic_demo"
+          },
+          "guidance_allowed": {
+            "type": "boolean",
+            "const": false,
+            "title": "Guidance Allowed",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "Health"
+      },
+      "InstructionCatalog": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "catalog_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Catalog Id"
+          },
+          "catalog_version": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Catalog Version"
+          },
+          "equipment_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Equipment Id"
+          },
+          "scope": {
+            "type": "string",
+            "const": "synthetic_demo",
+            "title": "Scope"
+          },
+          "instructions": {
+            "items": {
+              "$ref": "#/components/schemas/CatalogInstruction"
+            },
+            "type": "array",
+            "maxItems": 20,
+            "minItems": 1,
+            "title": "Instructions"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "catalog_id",
+          "catalog_version",
+          "equipment_id",
+          "scope",
+          "instructions"
+        ],
+        "title": "InstructionCatalog"
+      },
+      "Observation": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "equipment_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Equipment Id"
+          },
+          "sensor_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Sensor Id"
+          },
+          "timestamp_utc": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Timestamp Utc"
+          },
+          "quantity": {
+            "type": "string",
+            "enum": [
+              "temperature",
+              "current",
+              "vibration"
+            ],
+            "title": "Quantity"
+          },
+          "value": {
+            "type": "number",
+            "title": "Value"
+          },
+          "unit": {
+            "type": "string",
+            "enum": [
+              "degC",
+              "A",
+              "m/s2"
+            ],
+            "title": "Unit"
+          },
+          "provenance": {
+            "type": "string",
+            "enum": [
+              "simulated",
+              "measured"
+            ],
+            "title": "Provenance"
+          },
+          "quality": {
+            "type": "string",
+            "enum": [
+              "valid",
+              "suspect",
+              "invalid"
+            ],
+            "title": "Quality"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "equipment_id",
+          "sensor_id",
+          "timestamp_utc",
+          "quantity",
+          "value",
+          "unit",
+          "provenance",
+          "quality"
+        ],
+        "title": "Observation",
+        "description": "One explicit simulated or measured sensor reading in canonical units."
+      },
+      "ObservationSeries": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "observations": {
+            "items": {
+              "$ref": "#/components/schemas/Observation"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Observations"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "observations"
+        ],
+        "title": "ObservationSeries",
+        "description": "A nonempty single-sensor series without silent sorting or provenance mixing."
+      },
+      "OpenReview": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "selection": {
+            "$ref": "#/components/schemas/SafetyRequest"
+          },
+          "ttl_seconds": {
+            "type": "integer",
+            "maximum": 3600.0,
+            "minimum": 1.0,
+            "title": "Ttl Seconds",
+            "default": 900
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "selection"
+        ],
+        "title": "OpenReview"
+      },
+      "Readiness": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "status": {
+            "type": "string",
+            "const": "ready",
+            "title": "Status",
+            "default": "ready"
+          },
+          "scope": {
+            "type": "string",
+            "const": "synthetic_demo",
+            "title": "Scope",
+            "default": "synthetic_demo"
+          },
+          "storage": {
+            "type": "string",
+            "enum": [
+              "not_configured",
+              "reachable"
+            ],
+            "title": "Storage"
+          },
+          "guidance_allowed": {
+            "type": "boolean",
+            "const": false,
+            "title": "Guidance Allowed",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "storage"
+        ],
+        "title": "Readiness"
+      },
+      "RecognitionResult": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "matched",
+              "unknown",
+              "low_confidence"
+            ],
+            "title": "Status"
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Reason"
+          },
+          "equipment_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Equipment Id"
+          },
+          "reference_kind": {
+            "type": "string",
+            "enum": [
+              "synthetic",
+              "real"
+            ],
+            "title": "Reference Kind"
+          },
+          "good_matches": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Good Matches",
+            "default": 0
+          },
+          "inliers": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Inliers",
+            "default": 0
+          },
+          "inlier_ratio": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Inlier Ratio",
+            "default": 0.0
+          },
+          "corners": {
+            "items": {
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "type": "array",
+              "maxItems": 2,
+              "minItems": 2
+            },
+            "type": "array",
+            "title": "Corners",
+            "default": []
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "status",
+          "reason",
+          "reference_kind"
+        ],
+        "title": "RecognitionResult"
+      },
+      "RequestedStep": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "step_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Step Id"
+          },
+          "instruction_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Instruction Id"
+          },
+          "part_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Part Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "step_id",
+          "instruction_id",
+          "part_id"
+        ],
+        "title": "RequestedStep"
+      },
+      "ReviewContext": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "record": {
+            "$ref": "#/components/schemas/ApprovalRecord"
+          },
+          "snapshot": {
+            "$ref": "#/components/schemas/Snapshot"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "record",
+          "snapshot"
+        ],
+        "title": "ReviewContext"
+      },
+      "ReviewDecision": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "decision": {
+            "type": "string",
+            "enum": [
+              "approve",
+              "reject"
+            ],
+            "title": "Decision"
+          },
+          "expected_context_digest": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Expected Context Digest"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "decision",
+          "expected_context_digest"
+        ],
+        "title": "ReviewDecision"
+      },
+      "SafetyCitation": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "assertion_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Assertion Id"
+          },
+          "evidence_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Evidence Id"
+          },
+          "document_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Document Id"
+          },
+          "document_version": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Document Version"
+          },
+          "checksum": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Checksum"
+          },
+          "page": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Page"
+          },
+          "section": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Section"
+          },
+          "relation": {
+            "type": "string",
+            "enum": [
+              "supports",
+              "contradicts"
+            ],
+            "title": "Relation"
+          },
+          "quote": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Quote"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "assertion_id",
+          "evidence_id",
+          "document_id",
+          "document_version",
+          "checksum",
+          "relation"
+        ],
+        "title": "SafetyCitation"
+      },
+      "SafetyReport": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "review_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Review Id"
+          },
+          "analysis_request_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Analysis Request Id"
+          },
+          "catalog_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Catalog Id"
+          },
+          "catalog_version": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Catalog Version"
+          },
+          "context_digest": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Context Digest"
+          },
+          "source_kind": {
+            "type": "string",
+            "const": "synthetic",
+            "title": "Source Kind",
+            "default": "synthetic"
+          },
+          "guidance_allowed": {
+            "type": "boolean",
+            "const": false,
+            "title": "Guidance Allowed",
+            "default": false
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "display_allowed",
+              "needs_information",
+              "needs_approval",
+              "blocked"
+            ],
+            "title": "Status"
+          },
+          "reason_code": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Reason Code"
+          },
+          "steps": {
+            "items": {
+              "$ref": "#/components/schemas/StepDecision"
+            },
+            "type": "array",
+            "maxItems": 5,
+            "minItems": 1,
+            "title": "Steps"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "review_id",
+          "analysis_request_id",
+          "catalog_id",
+          "catalog_version",
+          "context_digest",
+          "status",
+          "reason_code",
+          "steps"
+        ],
+        "title": "SafetyReport"
+      },
+      "SafetyRequest": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "review_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Review Id"
+          },
+          "analysis_request_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Analysis Request Id"
+          },
+          "tracking_status": {
+            "type": "string",
+            "enum": [
+              "tracked",
+              "lost",
+              "unknown"
+            ],
+            "title": "Tracking Status"
+          },
+          "steps": {
+            "items": {
+              "$ref": "#/components/schemas/RequestedStep"
+            },
+            "type": "array",
+            "maxItems": 5,
+            "minItems": 1,
+            "title": "Steps"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "review_id",
+          "analysis_request_id",
+          "tracking_status",
+          "steps"
+        ],
+        "title": "SafetyRequest"
+      },
+      "Snapshot": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "analysis": {
+            "$ref": "#/components/schemas/AnalysisState"
+          },
+          "request": {
+            "$ref": "#/components/schemas/SafetyRequest"
+          },
+          "catalog": {
+            "$ref": "#/components/schemas/InstructionCatalog"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "analysis",
+          "request",
+          "catalog"
+        ],
+        "title": "Snapshot"
+      },
+      "SourceAssertion": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "assertion_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Assertion Id"
+          },
+          "document_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Document Id"
+          },
+          "document_version": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Document Version"
+          },
+          "checksum": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Checksum"
+          },
+          "page": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Page"
+          },
+          "section": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Section"
+          },
+          "quote": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Quote"
+          },
+          "relation": {
+            "type": "string",
+            "enum": [
+              "supports",
+              "contradicts"
+            ],
+            "title": "Relation"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "assertion_id",
+          "document_id",
+          "document_version",
+          "checksum",
+          "quote",
+          "relation"
+        ],
+        "title": "SourceAssertion"
+      },
+      "StepDecision": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "step_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Step Id"
+          },
+          "instruction_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Instruction Id"
+          },
+          "part_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Part Id"
+          },
+          "risk": {
+            "type": "string",
+            "enum": [
+              "informational",
+              "critical",
+              "prohibited",
+              "unknown"
+            ],
+            "title": "Risk"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "display_allowed",
+              "needs_information",
+              "needs_approval",
+              "blocked"
+            ],
+            "title": "Status"
+          },
+          "reason_code": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Reason Code"
+          },
+          "citations": {
+            "items": {
+              "$ref": "#/components/schemas/SafetyCitation"
+            },
+            "type": "array",
+            "title": "Citations",
+            "default": []
+          },
+          "display_text": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Display Text"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "step_id",
+          "instruction_id",
+          "part_id",
+          "risk",
+          "status",
+          "reason_code"
+        ],
+        "title": "StepDecision"
+      },
+      "TraceEvent": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "step": {
+            "type": "integer",
+            "maximum": 3.0,
+            "minimum": 1.0,
+            "title": "Step"
+          },
+          "node": {
+            "type": "string",
+            "enum": [
+              "supervisor",
+              "knowledge",
+              "validation"
+            ],
+            "title": "Node"
+          },
+          "code": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Code"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "step",
+          "node",
+          "code"
+        ],
+        "title": "TraceEvent"
+      }
+    },
+    "securitySchemes": {
+      "HTTPBearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}

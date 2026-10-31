@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0",
+  "request_id": "synthetic-analysis-demo-1",
+  "catalog_id": "synthetic-diagnostic-catalog",
+  "catalog_version": "test-1",
+  "source_kind": "synthetic",
+  "guidance_allowed": false,
+  "status": "hypotheses_available",
+  "hypotheses": [
+    {
+      "schema_version": "1.0",
+      "code": "demo_environment_state",
+      "explanation": "Yaln\u0131zca sentetik senaryoda ortam etiketi ikinci bir olas\u0131 neden olarak tan\u0131mlanm\u0131\u015ft\u0131r.",
+      "supporting_evidence_ids": [
+        "chunk-9cf44de7593d3c64b9d448bb2ba2ec9712a7564c0ca1a404c7e1760ce01c539f"
+      ],
+      "contradicting_evidence_ids": [],
+      "uncertainty": "unverified",
+      "missing_information": [
+        "real_motor_model",
+        "reviewed_manufacturer_source",
+        "validated_sensor_series"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "code": "demo_load_state",
+      "explanation": "Yaln\u0131zca sentetik senaryoda y\u00fck etiketi olas\u0131 neden olarak tan\u0131mlanm\u0131\u015ft\u0131r.",
+      "supporting_evidence_ids": [
+        "chunk-9cf44de7593d3c64b9d448bb2ba2ec9712a7564c0ca1a404c7e1760ce01c539f"
+      ],
+      "contradicting_evidence_ids": [
+        "chunk-6c51a3bfdffbf3eb62a8cf0c49067f70153cfbd6f344a490d8453473de261bca"
+      ],
+      "uncertainty": "conflicting_evidence",
+      "missing_information": [
+        "real_motor_model",
+        "reviewed_manufacturer_source",
+        "validated_sensor_series"
+      ]
+    }
+  ],
+  "assertion_matches": [
+    {
+      "schema_version": "1.0",
+      "rule_code": "demo_load_state",
+      "assertion_id": "load-support",
+      "evidence_id": "chunk-9cf44de7593d3c64b9d448bb2ba2ec9712a7564c0ca1a404c7e1760ce01c539f",
+      "document_id": "holoassist-synthetic-diagnostic",
+      "document_version": "test-1",
+      "checksum": "059ed66160ea6335324f9ccf60e5f5c256e438ebc1afae881537c9607a5bf3c8",
+      "page": 3,
+      "section": "Sentetik olas\u0131l\u0131klar",
+      "relation": "supports",
+      "quote": "SENTET\u0130K TEST: overheating (temperature) belirtisi demo_load_state etiketiyle ili\u015fkilidir."
+    },
+    {
+      "schema_version": "1.0",
+      "rule_code": "demo_load_state",
+      "assertion_id": "load-contradiction",
+      "evidence_id": "chunk-6c51a3bfdffbf3eb62a8cf0c49067f70153cfbd6f344a490d8453473de261bca",
+      "document_id": "holoassist-synthetic-diagnostic",
+      "document_version": "test-1",
+      "checksum": "059ed66160ea6335324f9ccf60e5f5c256e438ebc1afae881537c9607a5bf3c8",
+      "page": 4,
+      "section": "Sentetik \u00e7eli\u015fki",
+      "relation": "contradicts",
+      "quote": "SENTET\u0130K KAR\u015eIT KAYIT: overheating (temperature) i\u00e7in demo_load_state etiketi ba\u015fka bir test kayd\u0131nda d\u0131\u015flanm\u0131\u015ft\u0131r."
+    },
+    {
+      "schema_version": "1.0",
+      "rule_code": "demo_environment_state",
+      "assertion_id": "environment-support",
+      "evidence_id": "chunk-9cf44de7593d3c64b9d448bb2ba2ec9712a7564c0ca1a404c7e1760ce01c539f",
+      "document_id": "holoassist-synthetic-diagnostic",
+      "document_version": "test-1",
+      "checksum": "059ed66160ea6335324f9ccf60e5f5c256e438ebc1afae881537c9607a5bf3c8",
+      "page": 3,
+      "section": "Sentetik olas\u0131l\u0131klar",
+      "relation": "supports",
+      "quote": "SENTET\u0130K TEST: overheating (temperature) belirtisi demo_environment_state etiketiyle ili\u015fkilidir."
+    }
+  ],
+  "missing_information": [],
+  "reason_code": "synthetic_catalog_evaluated"
+}

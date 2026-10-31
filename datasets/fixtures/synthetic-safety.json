@@ -1,0 +1,18 @@
+{
+  "document_id": "holoassist-synthetic-safety",
+  "blocks": [
+    {
+      "page": 1,
+      "section": "Sentetik talimat etiketleri",
+      "text": "temperature sıcaklık sentetik gösterim testi. SENTETİK KART: Bu ekranda yalnızca test verisi gösteriliyor. SENTETİK TEST ETİKETİ: Kritik işlem isteği. SENTETİK TEST ETİKETİ: Yasak işlem isteği. SENTETİK TEST ETİKETİ: Sınıflandırılmamış risk isteği. Bu metin gerçek bir bakım işlemi veya ekipman güvenliği kararı tanımlamaz."
+    }
+  ],
+  "document_version": "test-1",
+  "title": "Sentetik kaynak ve gösterim kapısı test belgesi",
+  "schema_version": "1.0",
+  "equipment_id": "synthetic-rig",
+  "source_kind": "synthetic",
+  "permission_reference": "Bu depo için oluşturulmuş CC0-1.0 test verisi.",
+  "license": "CC0-1.0",
+  "source_uri": "fixture://holoassist/synthetic-safety"
+}

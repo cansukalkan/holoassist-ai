@@ -1,0 +1,23 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.env
+.env.*
+!.env.example
+data/
+*.onnx
+*.pt
+unity-app/Library/
+unity-app/Temp/
+unity-app/Logs/
+unity-app/Obj/
+unity-app/Builds/
+unity-app/UserSettings/
+
+# Local wheel build artifacts
+/build/
+/dist/
+*.whl

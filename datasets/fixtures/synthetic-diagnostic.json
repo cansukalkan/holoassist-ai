@@ -1,0 +1,23 @@
+{
+  "document_id": "holoassist-synthetic-diagnostic",
+  "schema_version": "1.0",
+  "equipment_id": "synthetic-rig",
+  "source_kind": "synthetic",
+  "title": "Sentetik arıza hipotezi test kaydı — gerçek motor dokümanı değildir",
+  "document_version": "test-1",
+  "blocks": [
+    {
+      "section": "Sentetik olasılıklar",
+      "page": 3,
+      "text": "SENTETİK TEST: overheating (temperature) belirtisi demo_load_state etiketiyle ilişkilidir. SENTETİK TEST: overheating (temperature) belirtisi demo_environment_state etiketiyle ilişkilidir. Bu ifadeler yalnızca kural ve kaynak eşleştirme testidir; gerçek ekipman teşhisi veya bakım talimatı değildir."
+    },
+    {
+      "section": "Sentetik çelişki",
+      "page": 4,
+      "text": "SENTETİK KARŞIT KAYIT: overheating (temperature) için demo_load_state etiketi başka bir test kaydında dışlanmıştır. Bu karşıt kayıt, yazılımın çelişen kanıtı saklamasını doğrulamak için tasarlanmıştır; gerçek sıcaklık veya arıza ölçümü değildir."
+    }
+  ],
+  "source_uri": "fixture://holoassist/synthetic-diagnostic",
+  "permission_reference": "Bu depo için oluşturulmuş CC0-1.0 sentetik test kaydı.",
+  "license": "CC0-1.0"
+}

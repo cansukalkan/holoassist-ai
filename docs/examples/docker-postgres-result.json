@@ -1,0 +1,30 @@
+{
+  "verified_date": "2026-10-21",
+  "container": "holoassist-postgres-1",
+  "image": "postgres:17-bookworm",
+  "postgres_version": "17.11",
+  "health": "healthy",
+  "host": "127.0.0.1",
+  "port": 5433,
+  "database": "holoassist",
+  "volume": "holoassist_postgres_data",
+  "tables": [
+    "approvals",
+    "approval_events"
+  ],
+  "synthetic_demo": {
+    "approval_id": "6d6667b6-2ae9-4816-a347-494b2532681e",
+    "status_at_creation": "pending",
+    "expires_utc": "2026-10-21T06:32:10.943808Z",
+    "guidance_allowed": false
+  },
+  "row_counts_at_verification": {
+    "approvals": 1,
+    "approval_events": 1
+  },
+  "docker_integration_tests": {
+    "passed": 6,
+    "failed": 0
+  },
+  "scope": "Database only; no API or Unity container"
+}

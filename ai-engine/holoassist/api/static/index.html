@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HoloAssist AI · Teknik İnceleme Konsolu</title>
+  <link rel="stylesheet" href="/demo/assets/style.css?v=20261031-4">
+  <script src="/demo/assets/app.js?v=20261031-4" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">İçeriğe geç</a>
+
+<aside class="sidebar">
+  <a class="brand" href="/">
+    <span class="brand-mark">H<span>·</span></span>holoassist<span class="brand-ai">AI</span>
+  </a>
+
+  <div class="workspace">
+    <span class="workspace-icon">DC</span>
+    <div>
+      Düşük Voltajlı DC Motor
+      <small>Kayıt: synthetic-rig · Demo kipi</small>
+    </div>
+  </div>
+
+  <div class="nav-label">PLATFORM GEZİNTİSİ</div>
+  <a class="nav" href="/"><span>◈</span>Ürün ve mimari sayfası</a>
+  <a class="nav active" href="/demo" aria-current="page"><span>▦</span>Teknik inceleme konsolu<span class="nav-dot"></span></a>
+  <a class="nav" href="/docs"><span>⌘</span>OpenAPI sözleşmeleri<span>↗</span></a>
+
+  <div class="nav-label section-jump-label">KONSOL BÖLÜMLERİ</div>
+  <a class="subnav" href="#sec-safety">01 · Güvenlik ve 3D anchor kapısı</a>
+  <a class="subnav" href="#sec-sensor">02 · Sensör zaman serileri</a>
+  <a class="subnav" href="#sec-diagnostic">03 · Kanıt ve çelişki matrisi</a>
+  <a class="subnav" href="#sec-benchmark">04 · Sentetik benchmark &amp; önbellek</a>
+  <a class="subnav" href="#sec-export">05 · Denetim paketi dışa aktarım</a>
+
+  <div class="roadmap">
+    <div class="nav-label">YOL HARİTASI KONUMU</div>
+    <div class="milestone done"><i></i>Sözleşme, RAG ve önbellek</div>
+    <div class="milestone done"><i></i>Kalıcı onay, 3D anchor ve API</div>
+    <div class="milestone current"><i></i>Web, Unity 3D &amp; Benchmark<span>ŞİMDİ</span></div>
+    <div class="milestone"><i></i>Gerçek motor doğrulaması<span>T01</span></div>
+    <div class="milestone"><i></i>Fiziksel kamera ve AR takibi<span>T13</span></div>
+  </div>
+
+  <div class="sidebar-foot">
+    <span class="small-orb" id="sidebar-orb"></span>
+    <span id="sidebar-api-text">API kontrol ediliyor…</span>
+    <small>guidance_allowed: false · Sentetik veri</small>
+  </div>
+</aside>
+
+<div class="page">
+  <header class="topbar">
+    <div class="crumbs">
+      <a href="/">HoloAssist AI</a>
+      <span>/</span>
+      <strong>Teknik İnceleme Konsolu</strong>
+      <span class="crumb-sep">·</span>
+      <code class="top-code">schema_version: 1.0</code>
+    </div>
+    <div class="topbar-right">
+      <span class="health-pill" id="top-health-pill">Sunucu doğrulanıyor…</span>
+      <a class="topbar-link" href="/">← Ana Sayfa</a>
+      <a class="topbar-link" href="/docs">API Şeması ↗</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="heading">
+      <div>
+        <div class="eyebrow"><span></span>KANITA DAYALI TEKNİK İNCELEME KONSOLU</div>
+        <h1>Kanıt zincirini, telemetriyi ve güvenlik kararlarını tek ekranda denetle.</h1>
+        <p>Bu konsoldaki üç denetim modülü de aynı <code>synthetic-rig</code> eğitim düzeneği bağlamını kullanır; her bölüm sunucu üzerindeki doğrulanmış sabit <code>synthetic</code> / <code>simulated</code> kayıtlarla bağımsız olarak değerlendirilir.</p>
+      </div>
+      <span class="demo-badge">◇ SENTETİK DEMO KİPİ</span>
+    </section>
+
+    <section class="summary" aria-label="Sistem ve oturum bağlamı">
+      <div>
+        <span class="metric-icon">◈</span>
+        <div>
+          <small>AKTİF DÜZENEK VE ANALİZ KAYDI</small>
+          <strong>DC Motor (<code>synthetic-rig</code>) · <code>synthetic-analysis-demo-1</code></strong>
+        </div>
+      </div>
+      <div>
+        <span class="metric-icon">⌁</span>
+        <div>
+          <small>VERİTABANI VE HAZIRLIK (/ready)</small>
+          <strong id="storage-status" role="status">Kontrol ediliyor…</strong>
+        </div>
+      </div>
+      <div>
+        <span class="metric-icon muted">⊘</span>
+        <div>
+          <small>FİZİKSEL MÜDAHALE YETKİSİ</small>
+          <strong>Kapalı <span class="muted-text">· guidance_allowed = false</span></strong>
+        </div>
+      </div>
+    </section>
+
+    <div class="main-grid">
+      <!-- SECTION 01: SCENARIO CONTROLS + DYNAMIC MOTOR RIG -->
+      <div class="left-stack" id="sec-safety">
+        <section class="panel scenario-panel" aria-labelledby="scenario-heading">
+          <div class="section-top">
+            <span class="step-num">01</span>
+            <div>
+              <h2 id="scenario-heading">Güvenlik kapısı senaryosu seç</h2>
+              <p>Seçim yapıldığında API ve temsili motor şeması anında güncellenir.</p>
+            </div>
+          </div>
+
+          <div class="scenarios" role="group" aria-label="Güvenlik kapısı sentetik senaryoları">
+            <button class="scenario selected" data-scenario="information" aria-pressed="true" type="button">
+              <span class="scenario-symbol ok">i</span>
+              <span>
+                <strong>Kaynaklı bilgi kartı</strong>
+                <small>Parça: <code>demo-label</code> · Takip: <code>tracked</code> · Gösterim açılır</small>
+              </span>
+              <span class="radio"></span>
+            </button>
+
+            <button class="scenario" data-scenario="critical" aria-pressed="false" type="button">
+              <span class="scenario-symbol warn">!</span>
+              <span>
+                <strong>Kritik müdahale adımı</strong>
+                <small>Parça: <code>demo-critical-part</code> · Kalıcı insan onayı gerekir</small>
+              </span>
+              <span class="radio"></span>
+            </button>
+
+            <button class="scenario" data-scenario="tracking" aria-pressed="false" type="button">
+              <span class="scenario-symbol warn">⌖</span>
+              <span>
+                <strong>Parça takip kaybı</strong>
+                <small>Takip: <code>lost</code> · Önceki bilgi kartı ve parça işareti kaldırılır</small>
+              </span>
+              <span class="radio"></span>
+            </button>
+
+            <button class="scenario" data-scenario="unknown" aria-pressed="false" type="button">
+              <span class="scenario-symbol err">?</span>
+              <span>
+                <strong>Bilinmeyen / uyuşmayan parça</strong>
+                <small>Parça: <code>unknown-part</code> · Katalog uyuşmazlığıyla engellenir</small>
+              </span>
+              <span class="radio"></span>
+            </button>
+
+            <button class="scenario" data-scenario="injection" aria-pressed="false" type="button">
+              <span class="scenario-symbol err">⚡</span>
+              <span>
+                <strong>Yetkisiz alan enjeksiyon testi (HTTP 422)</strong>
+                <small>İstemci <code>"approval": "bypass"</code> gönderir · Sınırda reddedilir</small>
+              </span>
+              <span class="radio"></span>
+            </button>
+          </div>
+
+          <div id="scenario-quick-data" class="scenario-quick-data" aria-live="polite">
+            <div class="sq-head">
+              <span class="sq-title" id="sq-title">Seçili Senaryo Verisi Yükleniyor…</span>
+              <span class="sq-code" id="sq-http">API</span>
+            </div>
+            <div class="sq-body" id="sq-body">Sunucudan canlı güvenlik kapısı yanıtı alınıyor…</div>
+            <div class="sq-meta" id="sq-meta">Parça: demo-label · Takip: tracked · guidance_allowed: false</div>
+          </div>
+
+          <button id="evaluate" class="primary" type="button">Seçili senaryoyu yeniden doğrula <span>↻</span></button>
+          <p class="local-note">Salt değerlendirme ucu (<code>POST /v1/demo/safety/evaluate</code>); veritabanında onay kaydı açmaz. <a class="inline-jump" href="#sec-safety-result">Detaylı çıktı paneli →</a></p>
+        </section>
+
+        <section class="panel equipment-panel" aria-labelledby="rig-heading">
+          <div class="equipment-head">
+            <div>
+              <div class="eyebrow">PARÇA VE TAKİP ÖNİZLEMESİ</div>
+              <h2 id="rig-heading">DC Motor Şeması (<code>synthetic-rig</code>)</h2>
+            </div>
+            <span class="outline-badge" id="rig-part-badge">Hedef: demo-label</span>
+          </div>
+
+          <div class="motor-view">
+            <svg viewBox="0 0 460 228" role="img" aria-labelledby="motor-title">
+              <title id="motor-title">Düşük voltajlı DC motorun senaryoya duyarlı temsili çizimi; gerçek kamera tanıma veya AR görünümü değildir.</title>
+              <defs>
+                <linearGradient id="metal" x1="0" y1="0" x2="0" y2="1">
+                  <stop stop-color="#dce6ea"/>
+                  <stop offset=".45" stop-color="#f7fbfc"/>
+                  <stop offset="1" stop-color="#9fb0ba"/>
+                </linearGradient>
+                <linearGradient id="cap" x1="0" y1="1">
+                  <stop stop-color="#193343"/>
+                  <stop offset="1" stop-color="#3f5d6c"/>
+                </linearGradient>
+                <pattern id="grid" width="22" height="22" patternUnits="userSpaceOnUse">
+                  <path d="M 22 0 L 0 0 0 22" fill="none" stroke="#e1eaec" stroke-width=".8"/>
+                </pattern>
+              </defs>
+
+              <rect width="460" height="228" fill="url(#grid)"/>
+              <ellipse cx="235" cy="184" rx="132" ry="13" fill="#b4c4ca" opacity=".28"/>
+
+              <!-- Rear Commutator / Brush Cap (demo-critical-part) -->
+              <g id="motor-zone-critical">
+                <path d="M126 88 L162 72 V160 L126 144 Z" fill="url(#cap)" stroke="#234452" stroke-width="1.5"/>
+                <path d="M126 104 L94 92 L74 98" fill="none" stroke="#c86d51" stroke-width="4" stroke-linecap="round"/>
+                <path d="M126 128 L96 140 L76 136" fill="none" stroke="#345066" stroke-width="4" stroke-linecap="round"/>
+              </g>
+
+              <!-- Stator Main Housing & Nameplate (demo-label) -->
+              <g id="motor-zone-label">
+                <path d="M162 72 H292 L318 92 V142 L290 162 H162 Z" fill="url(#metal)" stroke="#859aa6" stroke-width="1.4"/>
+                <path d="M192 73 V161 M272 73 V161" stroke="#9eb1bc"/>
+                <rect id="motor-nameplate" x="205" y="96" width="56" height="38" rx="4" fill="#e6f4f0" stroke="#0d8a77" stroke-width="1.8"/>
+                <path d="M213 108 H253 M213 116 H246 M213 124 H239" stroke="#187868" stroke-width="2"/>
+              </g>
+
+              <!-- Rotor Bell & Shaft -->
+              <ellipse cx="314" cy="117" rx="20" ry="36" fill="#b3c3cb" stroke="#859aa6"/>
+              <path d="M314 110 L388 108 Q398 117 388 125 L314 124 Z" fill="url(#metal)" stroke="#8298a4"/>
+
+              <!-- Dynamic Active Target Reticle (demo-label position by default) -->
+              <g id="motor-reticle-label">
+                <circle cx="233" cy="115" r="28" fill="#0e8d78" opacity=".10"/>
+                <circle cx="233" cy="115" r="20" fill="none" stroke="#0d8a77" stroke-width="1.6" stroke-dasharray="4 3"/>
+                <path d="M233 95 V38 H302" stroke="#0d8a77" stroke-width="1.4" fill="none"/>
+              </g>
+
+              <!-- Dynamic Critical Target Reticle (hidden unless critical selected) -->
+              <g id="motor-reticle-critical" class="svg-hidden">
+                <circle cx="142" cy="116" r="28" fill="#d97706" opacity=".14"/>
+                <circle cx="142" cy="116" r="20" fill="none" stroke="#c2780e" stroke-width="1.8" stroke-dasharray="4 3"/>
+                <path d="M142 96 V38 H302" stroke="#c2780e" stroke-width="1.4" fill="none"/>
+              </g>
+
+              <rect id="motor-callout-box" x="302" y="22" width="146" height="28" rx="5" fill="#ffffff" stroke="#bdd8d0"/>
+              <text id="motor-callout-text" x="310" y="40" fill="#136f60" font-size="10.5" font-weight="600" font-family="Segoe UI, Arial, sans-serif">demo-label · Doğrulandı</text>
+            </svg>
+            <span class="device-chip" id="motor-tracking-chip"><i id="motor-chip-dot"></i><span id="motor-chip-text">Takip simülasyonu: tracked</span></span>
+          </div>
+          <p class="drawing-note">Temsili parça eşleme şemasıdır; Unity 3D sahnesindeki <code>demo-label</code> ve <code>demo-critical-part</code> davranışıyla birebir aynı sözleşme kurallarını izler.</p>
+        </section>
+      </div>
+
+      <!-- SECTION 02: SAFETY EVALUATION OUTPUT -->
+      <section class="panel result-panel" id="sec-safety-result" aria-labelledby="result-heading">
+        <div class="section-top">
+          <span class="step-num">02</span>
+          <div>
+            <h2 id="result-heading">Güvenlik kapısı değerlendirme sonucu</h2>
+            <p>Backend kararı, atomik gizleme kontrolü ve korunan kaynak zinciri.</p>
+          </div>
+          <span class="live-tag" id="safety-latency-tag">API</span>
+        </div>
+
+        <div id="result" aria-live="polite" aria-atomic="true">
+          <div class="empty">Değerlendirme bekleniyor…</div>
+        </div>
+      </section>
+
+      <!-- SECTION 03: DETERMINISTIC SENSOR ANALYTICS -->
+      <section class="panel sensor-panel" id="sec-sensor" aria-labelledby="sensor-heading">
+        <div class="sensor-top">
+          <div class="section-top">
+            <span class="step-num">03</span>
+            <div>
+              <h2 id="sensor-heading">Deterministik sensör serisi analizi (<code>synthetic-rig</code>)</h2>
+              <p>Sabit <code>simulated</code> zaman serileri · İstatistik, eğim ve MAD aday hesabı sunucuda yapılır</p>
+            </div>
+          </div>
+          <span class="demo-badge">KÖKEN: SIMULATED</span>
+        </div>
+
+        <div class="sensor-controls" role="group" aria-label="Sentetik sensör serisi seçimi">
+          <button data-sensor="current" class="sensor-tab selected" aria-pressed="true" type="button">Akım (A)</button>
+          <button data-sensor="temperature" class="sensor-tab" aria-pressed="false" type="button">Sıcaklık (°C)</button>
+          <button data-sensor="vibration" class="sensor-tab" aria-pressed="false" type="button">Titreşim (m/s²)</button>
+        </div>
+
+        <div id="sensor-result" aria-live="polite">
+          <div class="empty">Sentetik zaman serisi yükleniyor…</div>
+        </div>
+
+        <p class="sensor-disclaimer">
+          Turuncu işaretli örnek yalnızca serinin kendi dağılımına göre medyan mutlak sapma (MAD, eşik 3,5) adayıdır; motor arızası teşhisi veya güvenli çalışma onayı değildir.
+        </p>
+      </section>
+
+      <!-- SECTION 04: EVIDENCE & CONTRADICTION MATRIX -->
+      <section class="panel diagnostic-panel" id="sec-diagnostic" aria-labelledby="diagnostic-heading">
+        <div class="sensor-top">
+          <div class="section-top">
+            <span class="step-num">04</span>
+            <div>
+              <h2 id="diagnostic-heading">Kaynak bağlama ve karşıt kanıt matrisi</h2>
+              <p>Kayıtlı <code>AnalysisState</code> üzerinde destekleyen ve çelişen doküman alıntılarının denetimi</p>
+            </div>
+          </div>
+          <span class="demo-badge">SIRALAMASIZ TEST OLASILIKLARI</span>
+        </div>
+
+        <div class="diagnostic-context-bar" aria-label="Değerlendirilen kayıt bağlamı">
+          <span><strong>İncelenen Kayıt:</strong> <code>synthetic-analysis-demo-1</code></span>
+          <span><strong>Test Belirti Kodu:</strong> Aşırı ısınma (<code>overheating</code> / <code>temperature</code>)</span>
+          <span><strong>Katalog:</strong> <code>synthetic-diagnostic-catalog</code> (sürüm <code>test-1</code>)</span>
+        </div>
+
+        <div class="diagnostic-controls" role="group" aria-label="Kanıt bütünlüğü senaryosu">
+          <button class="sensor-tab selected" data-diagnostic="complete" aria-pressed="true" type="button">Tüm test kayıtları mevcut (Destek + Karşıt)</button>
+          <button class="sensor-tab" data-diagnostic="missing_counter_evidence" aria-pressed="false" type="button">Karşıt kayıt eksik (Tek taraflı kanıt engeli)</button>
+        </div>
+
+        <div id="diagnostic-result" aria-live="polite">
+          <div class="empty">Kaynak ve çelişki kayıtları kontrol ediliyor…</div>
+        </div>
+
+        <p class="sensor-disclaimer">
+          Bu bölüm gerçek bir motorun arıza teşhisini yapmaz; katalog kurallarının kaynak doğrulama, çelişki görünürlüğü ve eksik karşıt kanıtta susma (abstention) davranışını kanıtlar.
+        </p>
+      </section>
+
+      <!-- SECTION 05: REPRODUCIBLE SYNTHETIC BENCHMARK & RAG CACHE -->
+      <section class="panel benchmark-panel" id="sec-benchmark" aria-labelledby="benchmark-heading">
+        <div class="sensor-top">
+          <div class="section-top">
+            <span class="step-num">05</span>
+            <div>
+              <h2 id="benchmark-heading">Tekrarlanabilir sentetik benchmark ve RAG önbellek doğrulaması</h2>
+              <p>Dondurulmuş sentetik veri setleri üzerinde Görüntü İşleme, RAG + Önbellek, Tanı, 3D Anchor ve Güvenlik kapılarının canlı doğrulaması (<code>GET /v1/demo/evaluation</code>)</p>
+            </div>
+          </div>
+          <button id="run-benchmark" class="sensor-tab selected" type="button">Benchmark paketini yenile ↻</button>
+        </div>
+
+        <div id="benchmark-result" aria-live="polite">
+          <div class="empty">Sentetik doğrulama metrikleri yükleniyor…</div>
+        </div>
+
+        <p class="sensor-disclaimer">
+          Tüm metrikler <code>synthetic_fixture_benchmark</code> kapsamındadır; gerçek DC motor fotoğrafı (T01) veya fiziksel mobil AR takibi (T13) başarısı iddia etmez (<code>physical_device_validated: false</code>).
+        </p>
+      </section>
+
+      <!-- SECTION 06: UNIFIED AUDIT EXPORT -->
+      <section class="export-panel" id="sec-export" aria-labelledby="export-heading">
+        <div class="export-copy">
+          <h2 id="export-heading">Seçili inceleme durumlarını bağımsız JSON raporu olarak indir</h2>
+          <p>İndirme sırasında yukarıda seçtiğiniz senaryolar sunucuda (<code>GET /v1/demo/report</code>) sıfırdan yeniden değerlendirilir; kanıt kimlikleri, SHA-256 özetleri ve <code>simulated</code> / <code>synthetic</code> etiketleri korunur. Bölümler birbirinden bağımsızdır; birleşik arıza kararı üretmez.</p>
+          <div class="export-selection-pills" aria-label="Dışa aktarılacak aktif seçimler">
+            <span class="sel-pill" id="exp-pill-safety">01 Güvenlik: Kaynaklı bilgi kartı</span>
+            <span class="sel-pill" id="exp-pill-sensor">02 Sensör: Akım (A)</span>
+            <span class="sel-pill" id="exp-pill-diag">03 Kanıt: Tüm test kayıtları</span>
+          </div>
+          <span id="export-status" role="status"></span>
+        </div>
+        <button id="export-report" class="export-button" type="button">JSON denetim raporu indir <span>↓</span></button>
+      </section>
+
+      <!-- SECTION 07: UNITY SYNCHRONIZATION STATUS -->
+      <section class="unity-note">
+        <span class="unity-symbol">◈</span>
+        <div>
+          <h2>Unity 3D Sentetik Denetim İstasyonu ile Birebir Sözleşme Uyumu</h2>
+          <p>Bu sayfadaki tüm uçlar (<code>/v1/demo/safety/evaluate</code>, <code>/v1/demo/spatial/*</code>, <code>/v1/demo/sensors/*</code>, <code>/v1/demo/diagnostic/*</code>, <code>/v1/demo/evaluation</code>, <code>/v1/demo/report</code>) Unity 6 UI Toolkit istasyonundaki 3D DC motor sahnesiyle aynı şema doğrulayıcısını paylaşır. Gerçek motor seçimi (T01) ve mobil AR kamera takibi (T13) açık donanım kapılarıdır.</p>
+        </div>
+        <span class="outline-badge active-sync">Eş Zamanlı Hazır</span>
+      </section>
+    </div>
+
+    <footer>
+      HoloAssist AI <span>·</span> Kanıta dayalı teknik inceleme konsolu <span>·</span> Gerçek cihazda doğrulanmadı <span>·</span> <code>guidance_allowed: false</code>
+    </footer>
+  </main>
+</div>
+</body>
+</html>

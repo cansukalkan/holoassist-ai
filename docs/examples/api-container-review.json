@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "scope": "synthetic_demo",
+  "unauthenticated_status": 401,
+  "create_status": 200,
+  "repeat_returns_same_id": true,
+  "reviewer_context_status": 200,
+  "operator_decision_status": 403,
+  "read_status": 200,
+  "record": {
+    "schema_version": "1.0",
+    "approval_id": "6d0fccee-0440-4767-b445-57eee10ad213",
+    "review_id": "http-postgres-demo-98b70ae70c5b4cf1b93aefdf301aa333",
+    "analysis_request_id": "synthetic-analysis-demo-1",
+    "context_digest": "62184cb916ea8d175e310b86752719a1c72ee6258ddb97925c85b09a12b2654c",
+    "scope": "synthetic_demo",
+    "guidance_allowed": false,
+    "status": "pending",
+    "created_utc": "2026-10-21T07:07:20.315018Z",
+    "updated_utc": "2026-10-21T07:07:20.315018Z",
+    "expires_utc": "2026-10-21T07:22:20.315018Z",
+    "decided_by": null,
+    "decided_utc": null,
+    "consumed_utc": null,
+    "reason_code": "review_created"
+  },
+  "survived_api_restart": true
+}

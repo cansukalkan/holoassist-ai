@@ -1,0 +1,22 @@
+[
+  {
+    "schema_version": "1.0",
+    "evidence_id": "chunk-d223d285d4b30a9956d0b9fa340eec2c7ce8c45e22c91636e8b3746c7196b8fe",
+    "equipment_id": "synthetic-rig",
+    "document_id": "holoassist-synthetic-guide",
+    "document_version": "test-1",
+    "checksum": "6d52fe679cc3aa4f3e67d7c507ec84d273252f21e70fd7d04f2c5a0fffdc4a54",
+    "page": 2,
+    "section": "Sentetik sens\u00f6r kay\u0131tlar\u0131",
+    "excerpt": "Test d\u00fczene\u011finin s\u0131cakl\u0131k kanal\u0131 temperature ve degC, ak\u0131m kanal\u0131 current ve A, titre\u015fim kanal\u0131 vibration ve m/s2 alanlar\u0131yla temsil edilir. Sentetik kay\u0131tlarda provenance alan\u0131 simulated olarak belirtilir. Bu metin bir \u00f6l\u00e7\u00fcm sonucu, ar\u0131za belirtisi veya g\u00fcvenli \u00e7al\u0131\u015fma s\u0131n\u0131r\u0131 tan\u0131mlamaz.",
+    "retrieval_score": 0.17960524559020996,
+    "title": "HoloAssist sentetik test belgesi \u2014 \u00fcretici k\u0131lavuzu de\u011fildir",
+    "source_uri": "fixture://holoassist/synthetic-guide",
+    "source_kind": "synthetic",
+    "license": "CC0-1.0",
+    "permission_reference": "Bu depoda olu\u015fturulmu\u015f sentetik test metni; CC0-1.0 ile sunulur.",
+    "block_index": 1,
+    "start_char": 0,
+    "end_char": 289
+  }
+]

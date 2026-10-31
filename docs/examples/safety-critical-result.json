@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "review_id": "synthetic-review-critical",
+  "analysis_request_id": "synthetic-analysis-demo-1",
+  "catalog_id": "synthetic-instruction-catalog",
+  "catalog_version": "test-1",
+  "context_digest": "9d28482bd5f5777e31dc2396ae05b78e95072ae21a791443d4cfdb74fb781217",
+  "source_kind": "synthetic",
+  "guidance_allowed": false,
+  "status": "needs_approval",
+  "reason_code": "plan_not_displayable",
+  "steps": [
+    {
+      "schema_version": "1.0",
+      "step_id": "step-1",
+      "instruction_id": "demo-critical",
+      "part_id": "demo-critical-part",
+      "risk": "critical",
+      "status": "needs_approval",
+      "reason_code": "persistent_approval_not_implemented",
+      "citations": [
+        {
+          "schema_version": "1.0",
+          "assertion_id": "demo-critical-source",
+          "evidence_id": "chunk-5d6dccf1ec0df09456bade3e080810a56712833cda7724cc247d64be934155d6",
+          "document_id": "holoassist-synthetic-safety",
+          "document_version": "test-1",
+          "checksum": "827d6251c5903fd6ea1b9b5f5f9f81953afdbf06ac33786c1b2be8e34abdca35",
+          "page": 1,
+          "section": "Sentetik talimat etiketleri",
+          "relation": "supports",
+          "quote": null
+        }
+      ],
+      "display_text": null
+    }
+  ]
+}

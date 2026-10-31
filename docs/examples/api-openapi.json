@@ -1,0 +1,488 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "HoloAssist synthetic demo API",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "summary": "Health",
+        "operationId": "health_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Health"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/demo/safety/evaluate": {
+      "post": {
+        "summary": "Evaluate",
+        "operationId": "evaluate_v1_demo_safety_evaluate_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SafetyRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SafetyReport"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "Health": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "status": {
+            "type": "string",
+            "const": "ok",
+            "title": "Status",
+            "default": "ok"
+          },
+          "scope": {
+            "type": "string",
+            "const": "synthetic_demo",
+            "title": "Scope",
+            "default": "synthetic_demo"
+          },
+          "guidance_allowed": {
+            "type": "boolean",
+            "const": false,
+            "title": "Guidance Allowed",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "Health"
+      },
+      "RequestedStep": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "step_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Step Id"
+          },
+          "instruction_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Instruction Id"
+          },
+          "part_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Part Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "step_id",
+          "instruction_id",
+          "part_id"
+        ],
+        "title": "RequestedStep"
+      },
+      "SafetyCitation": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "assertion_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Assertion Id"
+          },
+          "evidence_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Evidence Id"
+          },
+          "document_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Document Id"
+          },
+          "document_version": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Document Version"
+          },
+          "checksum": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Checksum"
+          },
+          "page": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Page"
+          },
+          "section": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Section"
+          },
+          "relation": {
+            "type": "string",
+            "enum": [
+              "supports",
+              "contradicts"
+            ],
+            "title": "Relation"
+          },
+          "quote": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Quote"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "assertion_id",
+          "evidence_id",
+          "document_id",
+          "document_version",
+          "checksum",
+          "relation"
+        ],
+        "title": "SafetyCitation"
+      },
+      "SafetyReport": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "review_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Review Id"
+          },
+          "analysis_request_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Analysis Request Id"
+          },
+          "catalog_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Catalog Id"
+          },
+          "catalog_version": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Catalog Version"
+          },
+          "context_digest": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Context Digest"
+          },
+          "source_kind": {
+            "type": "string",
+            "const": "synthetic",
+            "title": "Source Kind",
+            "default": "synthetic"
+          },
+          "guidance_allowed": {
+            "type": "boolean",
+            "const": false,
+            "title": "Guidance Allowed",
+            "default": false
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "display_allowed",
+              "needs_information",
+              "needs_approval",
+              "blocked"
+            ],
+            "title": "Status"
+          },
+          "reason_code": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Reason Code"
+          },
+          "steps": {
+            "items": {
+              "$ref": "#/components/schemas/StepDecision"
+            },
+            "type": "array",
+            "maxItems": 5,
+            "minItems": 1,
+            "title": "Steps"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "review_id",
+          "analysis_request_id",
+          "catalog_id",
+          "catalog_version",
+          "context_digest",
+          "status",
+          "reason_code",
+          "steps"
+        ],
+        "title": "SafetyReport"
+      },
+      "SafetyRequest": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "review_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Review Id"
+          },
+          "analysis_request_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Analysis Request Id"
+          },
+          "tracking_status": {
+            "type": "string",
+            "enum": [
+              "tracked",
+              "lost",
+              "unknown"
+            ],
+            "title": "Tracking Status"
+          },
+          "steps": {
+            "items": {
+              "$ref": "#/components/schemas/RequestedStep"
+            },
+            "type": "array",
+            "maxItems": 5,
+            "minItems": 1,
+            "title": "Steps"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "review_id",
+          "analysis_request_id",
+          "tracking_status",
+          "steps"
+        ],
+        "title": "SafetyRequest"
+      },
+      "StepDecision": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "step_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Step Id"
+          },
+          "instruction_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Instruction Id"
+          },
+          "part_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Part Id"
+          },
+          "risk": {
+            "type": "string",
+            "enum": [
+              "informational",
+              "critical",
+              "prohibited",
+              "unknown"
+            ],
+            "title": "Risk"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "display_allowed",
+              "needs_information",
+              "needs_approval",
+              "blocked"
+            ],
+            "title": "Status"
+          },
+          "reason_code": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Reason Code"
+          },
+          "citations": {
+            "items": {
+              "$ref": "#/components/schemas/SafetyCitation"
+            },
+            "type": "array",
+            "title": "Citations",
+            "default": []
+          },
+          "display_text": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Display Text"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "step_id",
+          "instruction_id",
+          "part_id",
+          "risk",
+          "status",
+          "reason_code"
+        ],
+        "title": "StepDecision"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

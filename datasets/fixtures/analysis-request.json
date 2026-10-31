@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "request_id": "synthetic-analysis-demo-1",
+  "equipment_id": "synthetic-rig",
+  "mode": "demo",
+  "symptom_codes": ["overheating"],
+  "recognition": {
+    "status": "matched",
+    "reason": "synthetic_fixture_not_a_real_motor_measurement",
+    "equipment_id": "synthetic-rig",
+    "reference_kind": "synthetic",
+    "good_matches": 20,
+    "inliers": 16,
+    "inlier_ratio": 0.8,
+    "corners": [[0, 0], [100, 0], [100, 100], [0, 100]]
+  }
+}

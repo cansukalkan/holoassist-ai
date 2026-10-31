@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0",
+  "suite_id": "holoassist-synthetic-benchmark-v1",
+  "scope": "synthetic_fixture_benchmark",
+  "equipment_id": "synthetic-rig",
+  "source_kind": "synthetic",
+  "provenance": "simulated",
+  "physical_device_validated": false,
+  "calibrated_probabilities": false,
+  "guidance_allowed": false,
+  "all_synthetic_gates_passed": true,
+  "total_duration_ms": 1027.564,
+  "vision": {
+    "schema_version": "1.0",
+    "frames_evaluated": 4,
+    "true_positives": 2,
+    "true_negatives": 2,
+    "false_positives": 0,
+    "false_negatives": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "warped_max_corner_error_px": 7.4549,
+    "calibrated_probabilities": false
+  },
+  "rag": {
+    "schema_version": "1.0",
+    "documents_indexed": 3,
+    "chunks_indexed": 5,
+    "queries_executed": 5,
+    "citation_locator_rate": 1.0,
+    "unsupported_claim_count": 0,
+    "cross_equipment_leakage_count": 0,
+    "cache_hits": 2,
+    "cache_misses": 3,
+    "cold_query_ms": 4.342,
+    "warm_query_ms": 0.664,
+    "corpus_digest": "15d42c22045d4fc334c2df184873666e18b86f9d1bce6676aa0d8d1a506b3020"
+  },
+  "diagnostic": {
+    "schema_version": "1.0",
+    "sensor_series_verified": 3,
+    "supervisor_handoff_ready": true,
+    "contradiction_preserved": true,
+    "missing_counter_evidence_abstained": true
+  },
+  "safety_spatial": {
+    "schema_version": "1.0",
+    "checks_total": 8,
+    "checks_passed": 8,
+    "safety_violations": 0,
+    "tracking_loss_suppressed": true,
+    "unknown_anchor_suppressed": true,
+    "replay_token_rejected": true,
+    "digest_tamper_rejected": true
+  },
+  "fixture_digests": {
+    "datasets/fixtures/synthetic-guide.json": "6d52fe679cc3aa4f3e67d7c507ec84d273252f21e70fd7d04f2c5a0fffdc4a54",
+    "datasets/fixtures/synthetic-diagnostic.json": "059ed66160ea6335324f9ccf60e5f5c256e438ebc1afae881537c9607a5bf3c8",
+    "datasets/fixtures/synthetic-safety.json": "827d6251c5903fd6ea1b9b5f5f9f81953afdbf06ac33786c1b2be8e34abdca35",
+    "datasets/fixtures/instruction-catalog.json": "615ba19295b937d74a71e9f18349e14be7a000195837af70929b2134c56cddb3",
+    "datasets/fixtures/spatial-anchor-catalog.json": "0eb0f65ef5820be35ccc1556568eb4b7ace4f5b4b9d1309a065eb121c580d309",
+    "datasets/fixtures/diagnostic-catalog.json": "1040830002f57fd277068e55a3d6760feb7bd83d9911f3a70b12e62cb9f3baf4",
+    "datasets/fixtures/analysis-request.json": "bb545c27798e14b22cd516ec16fdb0ee39aa21fff44a4bdb9844e967800607d2",
+    "datasets/fixtures/sensor-current.json": "9bf98302df57d0d59b8e0a1f097021c7ff6bd56cf7207823530e113e53894599",
+    "datasets/fixtures/sensor-temperature.json": "3fa202860a71ac31ff1e655c318c24481bcb5fd328b411b7be8ccefbb731b7fb",
+    "datasets/fixtures/sensor-vibration.json": "b6d84fc7c0c7c7eddbf125f3e0c8672bbe49a9976f6b1e988f335c81c9137261",
+    "docs/examples/safety-analysis.json": "4836a6676cdcb5df878cc28fd6fa57c0e14cf409fe98a7d0073f30ececf04a09",
+    "docs/examples/diagnostic-analysis.json": "53f490ff29e4ea52cc72c9eeeabe76faf4db632b93c23aca6eb63e1b011373ea"
+  },
+  "open_hardware_gates": [
+    {
+      "schema_version": "1.0",
+      "gate_id": "T01_real_dc_motor_and_licensed_manual",
+      "status": "open_hardware_dependency",
+      "summary": "Fiziksel düşük voltajlı DC motor eğitim düzeneği seçimi ve yeniden dağıtım izinli üretici kılavuzu (AGENTS.md donanım kapısı)."
+    },
+    {
+      "schema_version": "1.0",
+      "gate_id": "T13_physical_ar_tracking_measurement",
+      "status": "open_hardware_dependency",
+      "summary": "Fiziksel kamera ve iPhone/ARKit ortamında milimetre/piksel hizalama ve takip kaybı ölçümü (cihaz olmadan başarı iddiası yapılmaz)."
+    },
+    {
+      "schema_version": "1.0",
+      "gate_id": "live_llm_single_vs_multi_agent_comparison",
+      "status": "open_hardware_dependency",
+      "summary": "İzinli gerçek teknik doküman eklendiğinde tek ajanlı ve çok ajanlı LLM akışlarının p50/p95 gecikme ve doğruluk karşılaştırması."
+    }
+  ]
+}

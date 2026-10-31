@@ -1,0 +1,70 @@
+{
+  "version": "1",
+  "pip_version": "24.2",
+  "install": [
+    {
+      "download_info": {
+        "url": "file:///C:/Users/cansu/OneDrive/Masa%C3%BCst%C3%BC/holo",
+        "dir_info": {
+          "editable": true
+        }
+      },
+      "is_direct": true,
+      "is_yanked": false,
+      "requested": true,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "holoassist-ai",
+        "version": "0.1.0",
+        "summary": "Evidence-grounded technical intelligence for an educational DC motor rig",
+        "requires_dist": [
+          "pydantic<3,>=2",
+          "pytest<9,>=8; extra == \"dev\"",
+          "ruff<1,>=0.11; extra == \"dev\"",
+          "httpx<1,>=0.28; extra == \"dev\"",
+          "openai<3,>=2; extra == \"ai\"",
+          "langgraph<2,>=1; extra == \"orchestration\"",
+          "psycopg[binary]<4,>=3.2; extra == \"postgres\"",
+          "python-dotenv<2,>=1; extra == \"postgres\"",
+          "chromadb<2,>=1; extra == \"rag\"",
+          "opencv-python-headless<5,>=4.10; extra == \"vision\"",
+          "pandas<3,>=2.2; extra == \"analytics\"",
+          "fastapi<1,>=0.115; extra == \"api\"",
+          "uvicorn<1,>=0.34; extra == \"api\""
+        ],
+        "requires_python": "<3.13,>=3.12",
+        "provides_extra": [
+          "dev",
+          "ai",
+          "orchestration",
+          "postgres",
+          "rag",
+          "vision",
+          "analytics",
+          "api"
+        ]
+      },
+      "requested_extras": [
+        "api",
+        "dev",
+        "orchestration",
+        "postgres",
+        "rag",
+        "vision"
+      ]
+    }
+  ],
+  "environment": {
+    "implementation_name": "cpython",
+    "implementation_version": "3.12.7",
+    "os_name": "nt",
+    "platform_machine": "AMD64",
+    "platform_release": "11",
+    "platform_system": "Windows",
+    "platform_version": "10.0.26300",
+    "python_full_version": "3.12.7",
+    "platform_python_implementation": "CPython",
+    "python_version": "3.12",
+    "sys_platform": "win32"
+  }
+}

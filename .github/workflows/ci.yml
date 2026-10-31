@@ -1,0 +1,40 @@
+name: HoloAssist AI Quality & Verification CI
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  verify:
+    name: Python 3.12 Contracts, RAG & Safety Verification
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e '.[dev,rag,orchestration,ai,vision,analytics,api]'
+
+      - name: Code formatting & linting (Ruff)
+        run: python -m ruff check .
+
+      - name: Dependency resolver check (pip check)
+        run: python -m pip check
+
+      - name: Run test suite (pytest)
+        run: python -m pytest -v
+
+      - name: Execute reproducible synthetic benchmark
+        run: python -m holoassist.evaluation --output docs/examples/synthetic-benchmark-report.json
+

@@ -1,0 +1,14 @@
+{
+  "readiness": {
+    "schema_version": "1.0",
+    "status": "ready",
+    "scope": "synthetic_demo",
+    "storage": "reachable",
+    "guidance_allowed": false
+  },
+  "oversized_request_status": 413,
+  "error": {
+    "schema_version": "1.0",
+    "code": "request_too_large"
+  }
+}

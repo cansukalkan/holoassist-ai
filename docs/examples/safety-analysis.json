@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0",
+  "guidance_allowed": false,
+  "request": {
+    "schema_version": "1.0",
+    "request_id": "synthetic-analysis-demo-1",
+    "equipment_id": "synthetic-rig",
+    "mode": "demo",
+    "recognition": {
+      "schema_version": "1.0",
+      "status": "matched",
+      "reason": "synthetic_fixture_not_a_real_motor_measurement",
+      "equipment_id": "synthetic-rig",
+      "reference_kind": "synthetic",
+      "good_matches": 20,
+      "inliers": 16,
+      "inlier_ratio": 0.8,
+      "corners": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          100.0,
+          0.0
+        ],
+        [
+          100.0,
+          100.0
+        ],
+        [
+          0.0,
+          100.0
+        ]
+      ]
+    },
+    "symptom_codes": [
+      "overheating"
+    ],
+    "sensor_series": []
+  },
+  "status": "ready_for_diagnostic",
+  "evidence": [
+    {
+      "schema_version": "1.0",
+      "evidence_id": "chunk-5d6dccf1ec0df09456bade3e080810a56712833cda7724cc247d64be934155d6",
+      "equipment_id": "synthetic-rig",
+      "document_id": "holoassist-synthetic-safety",
+      "document_version": "test-1",
+      "checksum": "827d6251c5903fd6ea1b9b5f5f9f81953afdbf06ac33786c1b2be8e34abdca35",
+      "page": 1,
+      "section": "Sentetik talimat etiketleri",
+      "excerpt": "temperature s\u0131cakl\u0131k sentetik g\u00f6sterim testi. SENTET\u0130K KART: Bu ekranda yaln\u0131zca test verisi g\u00f6steriliyor. SENTET\u0130K TEST ET\u0130KET\u0130: Kritik i\u015flem iste\u011fi. SENTET\u0130K TEST ET\u0130KET\u0130: Yasak i\u015flem iste\u011fi. SENTET\u0130K TEST ET\u0130KET\u0130: S\u0131n\u0131fland\u0131r\u0131lmam\u0131\u015f risk iste\u011fi. Bu metin ger\u00e7ek bir bak\u0131m i\u015flemi veya ekipman g\u00fcvenli\u011fi karar\u0131 tan\u0131mlamaz.",
+      "retrieval_score": 0.2773500680923462,
+      "title": "Sentetik kaynak ve g\u00f6sterim kap\u0131s\u0131 test belgesi",
+      "source_uri": "fixture://holoassist/synthetic-safety",
+      "source_kind": "synthetic",
+      "license": "CC0-1.0",
+      "permission_reference": "Bu depo i\u00e7in olu\u015fturulmu\u015f CC0-1.0 test verisi.",
+      "block_index": 0,
+      "start_char": 0,
+      "end_char": 323
+    }
+  ],
+  "missing_information": [],
+  "errors": [],
+  "trace": [
+    {
+      "schema_version": "1.0",
+      "step": 1,
+      "node": "supervisor",
+      "code": "retrieve_sources"
+    },
+    {
+      "schema_version": "1.0",
+      "step": 2,
+      "node": "knowledge",
+      "code": "sources_retrieved"
+    },
+    {
+      "schema_version": "1.0",
+      "step": 3,
+      "node": "validation",
+      "code": "diagnostic_handoff_ready"
+    }
+  ]
+}
